@@ -31,15 +31,19 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"Joueurs";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPlayer:)];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.players = [[NSArray alloc] initWithArray:[[Player sharedPlayer] getAllPlayers]];
+    [self reloadPlayers];
 
+}
+
+-(void)reloadPlayers {
+    self.players = [[NSArray alloc] initWithArray:[[Player sharedPlayer] getAllPlayers]];
 }
 
 -(IBAction)addPlayer:(id)sender {
@@ -65,6 +69,16 @@
      return (YES);
  }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ShowPlayerDetail1"] || [[segue identifier] isEqualToString:@"ShowPlayerDetail2"])
+        {
+            PlayerDetailController *playerDetail = [segue destinationViewController];
+            NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+            playerDetail.playerDetail = [self.players objectAtIndex:[myIndexPath row]];
+            playerDetail.playerListController = self;
+        }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -84,16 +98,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *kCellID = @"cellID";
+	static NSString *kCellID = @"Player";
 	Player *player;
     
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
-	if (cell == nil)
-	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellID];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-	}
     
     if (tableView == self.searchDisplayController.searchResultsTableView)
     {
@@ -109,28 +117,31 @@
 	return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Player *player;
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        player = [self.players objectAtIndex:indexPath.row];
+        
+        [player delete];
+        
+        [self reloadPlayers];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -149,16 +160,10 @@
 */
 
 #pragma mark - Table view delegate
-
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
+ */
 
 @end

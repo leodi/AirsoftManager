@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "Replica.h"
+#import "Database.h"
 
 @interface Player : NSObject {
     int id;
@@ -26,6 +27,8 @@
 +(Player *)sharedPlayer;
 
 -(NSMutableArray *)getAllPlayers;
--(Player *)initWithData:(NSString *)i name:(NSString *)n team:(NSString *)t;
-
+-(Player *)initWithData:(int)i name:(NSString *)n team:(NSString *)t;
+-(void)getReplicas;
+-(void)save;
+-(void)delete;
 @end

@@ -47,6 +47,11 @@ static Database *sharedDatabase;
     NSString *sqlStatement;
     char *error;
     
+#if __DEBUG__
+    NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseName];
+    [fileManager removeItemAtPath:databasePathFromApp error:nil];
+#endif
+
     if (![fileManager fileExistsAtPath:databasePath])
     {
         NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseName];
@@ -57,10 +62,12 @@ static Database *sharedDatabase;
         /**
          * Players
          */
+#if __DEBUG__
         sqlStatement = @"DROP TABLE IF EXISTS player";
         if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
             NSLog(@"KO Drop player, %s", error);
-        
+#endif
+    
         sqlStatement = @"CREATE TABLE IF NOT EXISTS player (id INTEGER PRIMARY KEY, name VARCHAR(50), team VARCHAR(50))";
         if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
             NSLog(@"KO Create table player, %s", error);
@@ -68,19 +75,23 @@ static Database *sharedDatabase;
         /**
          * Replica
          */
+#if __DEBUG__
         sqlStatement = @"DROP TABLE IF EXISTS replica";
         if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
             NSLog(@"KO Drop replica, %s", error);
-        
+#endif
+    
         sqlStatement = @"CREATE TABLE IF NOT EXISTS replica (id INTEGER PRIMARY KEY, id_player INTEGER, name VARCHAR(50), velocity INTEGER)";
         if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
             NSLog(@"KO Create table replica, %s", error);
-        
+    
+#if __DEBUG__
         sqlStatement = @"DROP INDEX IF EXISTS replica.IDX_ID_PLAYER";
         if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
             NSLog(@"KO Rm index, %s", error);
-        
-        sqlStatement = @"CREATE INDEX IDX_ID_PLAYER ON replica (id_player)";
+#endif
+    
+        sqlStatement = @"CREATE INDEX IF NOT EXISTS IDX_ID_PLAYER ON replica (id_player)";
         if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
             NSLog(@"KO Add index, %s", error);
         
@@ -88,13 +99,14 @@ static Database *sharedDatabase;
         /**
          * Insert
          */
-        sqlStatement = @"INSERT INTO player (name, team) VALUES ('name1', 'team'), ('name2', 'team'), ('name3', 'team')";
+#if __DEBUG__
+        sqlStatement = @"INSERT INTO player (name, team) VALUES ('Leodi', 'BAT91'), ('Arma', 'BAT91'), ('ZZ', 'Freelance')";
         if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
             NSLog(@"KO Insert player, %s", error);
-        sqlStatement = @"INSERT INTO replica (id_player, name, velocity) VALUES (1, 'name1', 'team'), (1, 'name2', 'team'), (2, 'name3', 'team')";
+        sqlStatement = @"INSERT INTO replica (id_player, name, velocity) VALUES (1, 'M16', '350'), (1, 'P90', '330'), (2, 'MP9', '600'), (2, 'Scar L', '330')";
         if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
             NSLog(@"KO Insert player, %s", error);
-        
+#endif
     
 }
 

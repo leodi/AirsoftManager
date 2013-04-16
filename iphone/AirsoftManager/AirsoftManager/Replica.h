@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Database.h"
 
-@interface Replica : NSObject {
-    NSString *name;
-    int velocity;
-}
+@interface Replica : NSObject
+
+@property (nonatomic) int id;
+@property (nonatomic) NSString *name;
+@property (nonatomic) int velocity;
+
+
++(NSArray *)getAllReplicasByPlayerId:(int)id;
+-(Replica *)initWithData:(int)i name:(NSString *)n velocity:(int)v;
+-(void)delete;
 
 @end
