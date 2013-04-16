@@ -40,6 +40,7 @@
 		CEB199DE171B473B007A0F18 /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB199DC171B473B007A0F18 /* 112-group.png */; };
 		CEB199E0171B4798007A0F18 /* 32-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB199DF171B4798007A0F18 /* 32-iphone.png */; };
 		CEB199E2171B4846007A0F18 /* 36-toolbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB199E1171B4846007A0F18 /* 36-toolbox.png */; };
+		CEB90179171DFB0800D6F34A /* ReplicaDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB90178171DFB0800D6F34A /* ReplicaDetailController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		CEB199DC171B473B007A0F18 /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
 		CEB199DF171B4798007A0F18 /* 32-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "32-iphone.png"; sourceTree = "<group>"; };
 		CEB199E1171B4846007A0F18 /* 36-toolbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "36-toolbox.png"; sourceTree = "<group>"; };
+		CEB90177171DFB0800D6F34A /* ReplicaDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplicaDetailController.h; path = ../ReplicaDetailController.h; sourceTree = "<group>"; };
+		CEB90178171DFB0800D6F34A /* ReplicaDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReplicaDetailController.m; path = ../ReplicaDetailController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				CE6CADCC171B4C7E00382B14 /* PlayerListController.m */,
 				CEA834F3171C8E0C00EE6919 /* PlayerDetailController.h */,
 				CEA834F4171C8E0C00EE6919 /* PlayerDetailController.m */,
+				CEB90177171DFB0800D6F34A /* ReplicaDetailController.h */,
+				CEB90178171DFB0800D6F34A /* ReplicaDetailController.m */,
 			);
 			path = AirsoftManager;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				CE6CADD8171B587F00382B14 /* Replica.m in Sources */,
 				CE6CADDB171B789E00382B14 /* Database.m in Sources */,
 				CEA834F5171C8E0C00EE6919 /* PlayerDetailController.m in Sources */,
+				CEB90179171DFB0800D6F34A /* ReplicaDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

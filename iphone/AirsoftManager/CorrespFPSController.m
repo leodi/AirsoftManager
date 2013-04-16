@@ -39,15 +39,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [base_weight setTitle:@"0.20" forState: UIControlStateNormal];
+    [base_weight setTitle:@"0.25" forState: UIControlStateNormal];
     [base_unit setTitle:@"FPS" forState: UIControlStateNormal];
     
-    [result_weight setTitle:@"0.25" forState: UIControlStateNormal];
+    [result_weight setTitle:@"0.20" forState: UIControlStateNormal];
     [result_unit setTitle:@"FPS" forState: UIControlStateNormal];
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-    
     [self.view addGestureRecognizer:tapRecognizer];
+    
+    [self calcResult];
 }
 
 -(void)tap:(UITapGestureRecognizer *)gr {
@@ -76,14 +77,14 @@
     }
     
     if ([result_unit.titleLabel.text isEqualToString:@"J"])
-        [result_speed setText:[NSString stringWithFormat:@"%.2f", base_joule]];
+        [result_speed setText:[NSString stringWithFormat:@"%.0f", ceil(base_joule)]];
     else
     {
         float result_fps = sqrt((base_joule * 2) / ([result_weight.titleLabel.text floatValue] / 1000)) * 3.2894;
         if ([result_unit.titleLabel.text isEqualToString:@"M/s"])
-            [result_speed setText:[NSString stringWithFormat:@"%.2f", result_fps * 0.304]];
+            [result_speed setText:[NSString stringWithFormat:@"%.0f", ceil(result_fps * 0.304)]];
         else
-            [result_speed setText:[NSString stringWithFormat:@"%.2f", result_fps]];
+            [result_speed setText:[NSString stringWithFormat:@"%.0f", ceil(result_fps)]];
     }
 }
 

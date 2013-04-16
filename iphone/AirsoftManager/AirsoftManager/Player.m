@@ -65,12 +65,13 @@ static Player *sharedPlayer = nil;
     sqlite3 *database = [[Database sharedDatabase] getDatabase];
     sqlite3_stmt *stmt;
     
-    const char * query = "UPDATE player SET name=?, team=? WHERE id=?";
+    const char * query = "INSERT OR REPLACE INTO player (id, name, team) VALUES (?,?,?)";
     if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)
         NSLog(@"Error sqlite prepare update [%s]", sqlite3_errmsg(database));
-    sqlite3_bind_text(stmt, 1, [[self name] UTF8String], -1, SQLITE_TRANSIENT);
-    sqlite3_bind_text(stmt, 2, [[self team] UTF8String], -1, SQLITE_TRANSIENT);
-    sqlite3_bind_int(stmt, 3, [self id]);
+    if ([self id] != 0)
+        sqlite3_bind_int(stmt, 1, [self id]);
+    sqlite3_bind_text(stmt, 2, [[self name] UTF8String], -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 3, [[self team] UTF8String], -1, SQLITE_TRANSIENT);
     sqlite3_step(stmt);
     sqlite3_finalize(stmt);
 }

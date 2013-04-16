@@ -14,7 +14,7 @@
 
 @implementation PlayerDetailController
 
-@synthesize playerDetail, name, team, replicaList;
+@synthesize playerDetail, name, team, replicaTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +32,6 @@
     self.navigationItem.title = [self.playerDetail name];
     self.name.text = [self.playerDetail name];
     self.team.text = [self.playerDetail team];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,4 +115,22 @@
     [self.playerListController reloadPlayers];
     [self.playerListController.tableView reloadData];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ShowReplicaDetail1"] || [[segue identifier] isEqualToString:@"ShowReplicaDetail2"])
+    {
+        ReplicaDetailController *replicaDetail = [segue destinationViewController];
+        NSIndexPath *myIndexPath = [self.replicaTable indexPathForSelectedRow];
+        replicaDetail.replicaDetail = [self.playerDetail.replicas objectAtIndex:[myIndexPath row]];
+        replicaDetail.playerDetailController = self;
+    }
+    else if ([[segue identifier] isEqualToString:@"AddReplica"])
+    {
+        ReplicaDetailController *replicaDetail = [segue destinationViewController];
+        replicaDetail.replicaDetail = [[Replica alloc] initWithData:0 id_player:self.playerDetail.id name:nil velocity:0];
+        replicaDetail.playerDetailController = self;
+    }
+    
+}
+
 @end

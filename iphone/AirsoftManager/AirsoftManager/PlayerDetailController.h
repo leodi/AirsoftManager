@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PlayerListController.h"
+#import "ReplicaDetailController.h"
 #import "Player.h"
 
 @class PlayerListController;
@@ -18,11 +19,12 @@
 @property (strong, nonatomic) PlayerListController *playerListController;
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextField *team;
-@property (weak, nonatomic) IBOutlet UITableView *replicaList;
+@property (weak, nonatomic) IBOutlet UITableView *replicaTable;
 
 - (IBAction)name:(id)sender;
 - (IBAction)team:(id)sender;
 - (IBAction)save:(id)sender;
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 @end

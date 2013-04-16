@@ -104,15 +104,12 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
     
     if (tableView == self.searchDisplayController.searchResultsTableView)
-    {
         player = [self.searchResults objectAtIndex:indexPath.row];
-        cell.textLabel.text = player.name;
-    }
     else
-    {
         player = [self.players objectAtIndex:indexPath.row];
-        cell.textLabel.text = player.name;        
-    }
+
+    cell.textLabel.text = player.name;
+    cell.detailTextLabel.text = player.team;
     
 	return cell;
 }
