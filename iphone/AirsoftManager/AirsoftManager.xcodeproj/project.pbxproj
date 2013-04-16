@@ -31,6 +31,7 @@
 		CE6CADD5171B57D400382B14 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6CADD4171B57D400382B14 /* Player.m */; };
 		CE6CADD8171B587F00382B14 /* Replica.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6CADD7171B587F00382B14 /* Replica.m */; };
 		CE6CADDB171B789E00382B14 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6CADDA171B789E00382B14 /* Database.m */; };
+		CEA834F5171C8E0C00EE6919 /* PlayerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA834F4171C8E0C00EE6919 /* PlayerDetailController.m */; };
 		CEB199CD171AE822007A0F18 /* CorrespFPSController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB199CC171AE822007A0F18 /* CorrespFPSController.m */; };
 		CEB199D0171AF69B007A0F18 /* CorrespFPSWeightController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB199CF171AF69B007A0F18 /* CorrespFPSWeightController.m */; };
 		CEB199D3171B1183007A0F18 /* CorrespFPSUnitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB199D2171B1183007A0F18 /* CorrespFPSUnitController.m */; };
@@ -87,6 +88,8 @@
 		CE6CADD7171B587F00382B14 /* Replica.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Replica.m; sourceTree = "<group>"; };
 		CE6CADD9171B789E00382B14 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		CE6CADDA171B789E00382B14 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		CEA834F3171C8E0C00EE6919 /* PlayerDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailController.h; sourceTree = "<group>"; };
+		CEA834F4171C8E0C00EE6919 /* PlayerDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailController.m; sourceTree = "<group>"; };
 		CEB199CB171AE822007A0F18 /* CorrespFPSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CorrespFPSController.h; path = ../CorrespFPSController.h; sourceTree = "<group>"; };
 		CEB199CC171AE822007A0F18 /* CorrespFPSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CorrespFPSController.m; path = ../CorrespFPSController.m; sourceTree = "<group>"; };
 		CEB199CE171AF69B007A0F18 /* CorrespFPSWeightController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorrespFPSWeightController.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				CE40A9611719B9B8006890C8 /* Supporting Files */,
 				CE6CADCB171B4C7E00382B14 /* PlayerListController.h */,
 				CE6CADCC171B4C7E00382B14 /* PlayerListController.m */,
+				CEA834F3171C8E0C00EE6919 /* PlayerDetailController.h */,
+				CEA834F4171C8E0C00EE6919 /* PlayerDetailController.m */,
 			);
 			path = AirsoftManager;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				CE6CADD5171B57D400382B14 /* Player.m in Sources */,
 				CE6CADD8171B587F00382B14 /* Replica.m in Sources */,
 				CE6CADDB171B789E00382B14 /* Database.m in Sources */,
+				CEA834F5171C8E0C00EE6919 /* PlayerDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
