@@ -33,7 +33,12 @@
     self.velocityText.text = [[NSString alloc] initWithFormat:@"%d", [self.replicaDetail velocity]];
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecognizer];
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    [self.playerDetailController.replicaTable deselectRowAtIndexPath:[self.playerDetailController.replicaTable indexPathForSelectedRow] animated:YES];
 }
 
 -(void)tap:(UITapGestureRecognizer *)gr {
@@ -70,6 +75,7 @@
     [self.playerDetailController.playerDetail getReplicas];
     [self.playerDetailController.replicaTable reloadData];
     
+    [self.playerDetailController.replicaTable deselectRowAtIndexPath:[self.playerDetailController.replicaTable indexPathForSelectedRow] animated:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

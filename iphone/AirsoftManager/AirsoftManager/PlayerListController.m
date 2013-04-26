@@ -15,8 +15,6 @@
 
 @implementation PlayerListController
 
-@synthesize players, searchResults;
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -38,6 +36,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    //self.searchDisplayController.searchResultsDelegate = self;
     [self reloadPlayers];
 
 }
@@ -46,9 +45,6 @@
     self.players = [[NSArray alloc] initWithArray:[[Player sharedPlayer] getAllPlayers]];
 }
 
--(IBAction)addPlayer:(id)sender {
-    NSLog(@"Add");
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -57,9 +53,10 @@
 }
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope {
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF.name contains[cd] %@", searchText];
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"(SELF.name contains[cd] %@) OR (SELF.team contains[cd] %@)", searchText, searchText];
     self.searchResults = [self.players filteredArrayUsingPredicate:resultPredicate];
  }
+
 
  -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
      [self
@@ -71,27 +68,43 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowPlayerDetail1"] || [[segue identifier] isEqualToString:@"ShowPlayerDetail2"])
+    {
+        NSIndexPath *myIndexPath;
+        PlayerDetailController *playerDetail = [segue destinationViewController];
+        
+        if (sender == self.searchDisplayController.searchResultsTableView)
         {
-            PlayerDetailController *playerDetail = [segue destinationViewController];
-            NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-            playerDetail.playerDetail = [self.players objectAtIndex:[myIndexPath row]];
-            playerDetail.playerListController = self;
+            myIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            playerDetail.playerDetail = [self.searchResults objectAtIndex:[myIndexPath row]];
         }
+        else
+        {
+            myIndexPath = [self.tableView indexPathForCell:sender];
+            playerDetail.playerDetail = [self.players objectAtIndex:[myIndexPath row]];
+        }
+        
+        playerDetail.playerListController = self;
+    }
+    else if ([[segue identifier] isEqualToString:@"AddPlayer"])
+    {
+        PlayerDetailController *playerDetail = [segue destinationViewController];
+        
+        playerDetail.playerDetail = [Player alloc];
+        playerDetail.playerListController = self;
+    }
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
- // #warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.searchDisplayController.searchResultsTableView)
-        return [searchResults count];
+        return [self.searchResults count];
     else
         return [self.players count];
 }
@@ -103,6 +116,10 @@
     
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
     
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:kCellID];
+    }
     if (tableView == self.searchDisplayController.searchResultsTableView)
         player = [self.searchResults objectAtIndex:indexPath.row];
     else
@@ -113,7 +130,6 @@
     
 	return cell;
 }
-
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -138,29 +154,15 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ 
 
 #pragma mark - Table view delegate
-/*
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        [self performSegueWithIdentifier:@"ShowPlayerDetail1" sender:tableView];
+    }
 }
- */
 
 @end

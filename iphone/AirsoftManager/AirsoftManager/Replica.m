@@ -56,6 +56,9 @@
     sqlite3_bind_int(stmt, 4, [self velocity]);
     sqlite3_step(stmt);
     sqlite3_finalize(stmt);
+    
+    if ([self id] == 0)
+        self.id = sqlite3_last_insert_rowid(database);
 }
 
 -(void)delete {

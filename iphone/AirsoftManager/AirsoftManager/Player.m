@@ -54,6 +54,11 @@ static Player *sharedPlayer = nil;
         }
     }
     sqlite3_finalize(compiledStatement);
+    [players sortUsingComparator:^ NSComparisonResult(Player *p1, Player *p2) {
+        if ([p1.team isEqualToString:p2.team])
+            return [p1.name localizedCaseInsensitiveCompare:p2.name];
+        return [p1.team localizedCaseInsensitiveCompare:p2.team];
+    }];
     return players;
 }
 
@@ -74,6 +79,9 @@ static Player *sharedPlayer = nil;
     sqlite3_bind_text(stmt, 3, [[self team] UTF8String], -1, SQLITE_TRANSIENT);
     sqlite3_step(stmt);
     sqlite3_finalize(stmt);
+    
+    if ([self id] == 0)
+        self.id = sqlite3_last_insert_rowid(database);
 }
 
 -(void)delete {

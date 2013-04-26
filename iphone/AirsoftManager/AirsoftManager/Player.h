@@ -15,7 +15,6 @@
     int id;
     NSString *name;
     NSString *team;
-    NSMutableArray *replicas; // Array of replica
 }
 
 
@@ -31,4 +30,5 @@
 -(void)getReplicas;
 -(void)save;
 -(void)delete;
+
 @end

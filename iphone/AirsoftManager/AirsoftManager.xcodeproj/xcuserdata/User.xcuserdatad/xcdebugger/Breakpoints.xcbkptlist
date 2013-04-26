@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AirsoftManager/Player.m"
-         timestampString = "387684208.021393"
+         timestampString = "388364603.644061"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
          landmarkName = "-getAllPlayers"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,12 +34,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AirsoftManager/PlayerListController.m"
-         timestampString = "387758581.207825"
+         timestampString = "388370966.979902"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
          landmarkName = "-prepareForSegue:sender:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AirsoftManager/GameListController.m"
+         timestampString = "388626476.487333"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
+         landmarkName = "-reloadGames"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

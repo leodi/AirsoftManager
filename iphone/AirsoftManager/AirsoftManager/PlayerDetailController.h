@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *team;
 @property (weak, nonatomic) IBOutlet UITableView *replicaTable;
 
+@property (weak, nonatomic) IBOutlet UIButton *addReplica;
+
 - (IBAction)name:(id)sender;
 - (IBAction)team:(id)sender;
 - (IBAction)save:(id)sender;

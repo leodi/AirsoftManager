@@ -13,6 +13,8 @@
 
 @interface CorrespFPSController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *view;
+
 @property (nonatomic, retain) IBOutlet UIButton *base_weight;
 @property (nonatomic, retain) IBOutlet UIButton *base_unit;
 @property (weak, nonatomic) IBOutlet UITextField *base_speed;

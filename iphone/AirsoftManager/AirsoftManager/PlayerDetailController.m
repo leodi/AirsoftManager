@@ -32,6 +32,17 @@
     self.navigationItem.title = [self.playerDetail name];
     self.name.text = [self.playerDetail name];
     self.team.text = [self.playerDetail team];
+    
+    if (self.playerDetail.id != 0)
+        [self activeAddReplica];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapRecognizer];
+}
+
+-(void)tap:(UITapGestureRecognizer *)gr {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +51,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)activeAddReplica {
+    [self.addReplica setEnabled:YES];
+    [self.addReplica setTitleColor:[UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0] forState:UIControlStateNormal];
+}
 
 
 #pragma mark Table view methods
@@ -93,6 +109,10 @@
 }
 
 
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    [self.replicaTable selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+}
+
 - (IBAction)name:(id)sender {
     [self.navigationItem rightBarButtonItem].enabled = YES;
 }
@@ -114,13 +134,17 @@
     
     [self.playerListController reloadPlayers];
     [self.playerListController.tableView reloadData];
+    
+    [self activeAddReplica];
 }
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowReplicaDetail1"] || [[segue identifier] isEqualToString:@"ShowReplicaDetail2"])
     {
         ReplicaDetailController *replicaDetail = [segue destinationViewController];
-        NSIndexPath *myIndexPath = [self.replicaTable indexPathForSelectedRow];
+        NSIndexPath *myIndexPath = [self.replicaTable indexPathForCell:sender];
+        
         replicaDetail.replicaDetail = [self.playerDetail.replicas objectAtIndex:[myIndexPath row]];
         replicaDetail.playerDetailController = self;
     }

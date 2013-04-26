@@ -17,14 +17,14 @@
 		CE40A96F1719B9B8006890C8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE40A96E1719B9B8006890C8 /* Default@2x.png */; };
 		CE40A9711719B9B8006890C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE40A9701719B9B8006890C8 /* Default-568h@2x.png */; };
 		CE40A9741719B9B8006890C8 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40A9721719B9B8006890C8 /* MainStoryboard_iPhone.storyboard */; };
-		CE40A97A1719B9B8006890C8 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40A9791719B9B8006890C8 /* FirstViewController.m */; };
-		CE40A9811719B9B8006890C8 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40A9801719B9B8006890C8 /* SecondViewController.m */; };
 		CE40A98D1719B9B8006890C8 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE40A98C1719B9B8006890C8 /* SenTestingKit.framework */; };
 		CE40A98E1719B9B8006890C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE40A95A1719B9B8006890C8 /* UIKit.framework */; };
 		CE40A98F1719B9B8006890C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE40A95C1719B9B8006890C8 /* Foundation.framework */; };
 		CE40A9971719B9B8006890C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE40A9951719B9B8006890C8 /* InfoPlist.strings */; };
 		CE40A99A1719B9B8006890C8 /* AirsoftManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40A9991719B9B8006890C8 /* AirsoftManagerTests.m */; };
 		CE40A9A5171A096D006890C8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE40A9A4171A096D006890C8 /* MapKit.framework */; };
+		CE4BBAE41729DA1C0064E590 /* GameListController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4BBAE31729DA1C0064E590 /* GameListController.m */; };
+		CE4BBAE71729DB260064E590 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4BBAE61729DB260064E590 /* Game.m */; };
 		CE6CADCD171B4C7E00382B14 /* PlayerListController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6CADCC171B4C7E00382B14 /* PlayerListController.m */; };
 		CE6CADCF171B55FE00382B14 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6CADCE171B55FE00382B14 /* libsqlite3.dylib */; };
 		CE6CADD1171B56DB00382B14 /* AirsoftManager.sql in Resources */ = {isa = PBXBuildFile; fileRef = CE6CADD0171B56DB00382B14 /* AirsoftManager.sql */; };
@@ -41,6 +41,8 @@
 		CEB199E0171B4798007A0F18 /* 32-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB199DF171B4798007A0F18 /* 32-iphone.png */; };
 		CEB199E2171B4846007A0F18 /* 36-toolbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB199E1171B4846007A0F18 /* 36-toolbox.png */; };
 		CEB90179171DFB0800D6F34A /* ReplicaDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB90178171DFB0800D6F34A /* ReplicaDetailController.m */; };
+		CEDD5B871728A22900395BEB /* tableViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDD5B851728A22900395BEB /* tableViewBackground.png */; };
+		CEDD5B881728A22900395BEB /* tableViewBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDD5B861728A22900395BEB /* tableViewBackground@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +70,6 @@
 		CE40A96E1719B9B8006890C8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CE40A9701719B9B8006890C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CE40A9731719B9B8006890C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		CE40A9781719B9B8006890C8 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		CE40A9791719B9B8006890C8 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		CE40A97F1719B9B8006890C8 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		CE40A9801719B9B8006890C8 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		CE40A98B1719B9B8006890C8 /* AirsoftManagerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirsoftManagerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE40A98C1719B9B8006890C8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE40A9941719B9B8006890C8 /* AirsoftManagerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirsoftManagerTests-Info.plist"; sourceTree = "<group>"; };
@@ -79,6 +77,10 @@
 		CE40A9981719B9B8006890C8 /* AirsoftManagerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirsoftManagerTests.h; sourceTree = "<group>"; };
 		CE40A9991719B9B8006890C8 /* AirsoftManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirsoftManagerTests.m; sourceTree = "<group>"; };
 		CE40A9A4171A096D006890C8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CE4BBAE21729DA1C0064E590 /* GameListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListController.h; sourceTree = "<group>"; };
+		CE4BBAE31729DA1C0064E590 /* GameListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListController.m; sourceTree = "<group>"; };
+		CE4BBAE51729DB260064E590 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		CE4BBAE61729DB260064E590 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		CE6CADCB171B4C7E00382B14 /* PlayerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListController.h; sourceTree = "<group>"; };
 		CE6CADCC171B4C7E00382B14 /* PlayerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListController.m; sourceTree = "<group>"; };
 		CE6CADCE171B55FE00382B14 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -104,6 +106,8 @@
 		CEB199E1171B4846007A0F18 /* 36-toolbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "36-toolbox.png"; sourceTree = "<group>"; };
 		CEB90177171DFB0800D6F34A /* ReplicaDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplicaDetailController.h; path = ../ReplicaDetailController.h; sourceTree = "<group>"; };
 		CEB90178171DFB0800D6F34A /* ReplicaDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReplicaDetailController.m; path = ../ReplicaDetailController.m; sourceTree = "<group>"; };
+		CEDD5B851728A22900395BEB /* tableViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableViewBackground.png; sourceTree = "<group>"; };
+		CEDD5B861728A22900395BEB /* tableViewBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewBackground@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,27 +172,12 @@
 		CE40A9601719B9B8006890C8 /* AirsoftManager */ = {
 			isa = PBXGroup;
 			children = (
+				CE4BBAE11729D9C20064E590 /* Matchs */,
+				CE4BBAE01729D8190064E590 /* Players */,
+				CEB9017B171E128B00D6F34A /* FPSTools */,
+				CEB9017A171E11D000D6F34A /* Base */,
 				CE6CADD2171B57AA00382B14 /* Class */,
-				CE40A9691719B9B8006890C8 /* AppDelegate.h */,
-				CE40A96A1719B9B8006890C8 /* AppDelegate.m */,
-				CEB199CB171AE822007A0F18 /* CorrespFPSController.h */,
-				CEB199CC171AE822007A0F18 /* CorrespFPSController.m */,
-				CEB199CE171AF69B007A0F18 /* CorrespFPSWeightController.h */,
-				CEB199CF171AF69B007A0F18 /* CorrespFPSWeightController.m */,
-				CEB199D1171B1183007A0F18 /* CorrespFPSUnitController.h */,
-				CEB199D2171B1183007A0F18 /* CorrespFPSUnitController.m */,
-				CE40A9721719B9B8006890C8 /* MainStoryboard_iPhone.storyboard */,
-				CE40A9781719B9B8006890C8 /* FirstViewController.h */,
-				CE40A9791719B9B8006890C8 /* FirstViewController.m */,
-				CE40A97F1719B9B8006890C8 /* SecondViewController.h */,
-				CE40A9801719B9B8006890C8 /* SecondViewController.m */,
 				CE40A9611719B9B8006890C8 /* Supporting Files */,
-				CE6CADCB171B4C7E00382B14 /* PlayerListController.h */,
-				CE6CADCC171B4C7E00382B14 /* PlayerListController.m */,
-				CEA834F3171C8E0C00EE6919 /* PlayerDetailController.h */,
-				CEA834F4171C8E0C00EE6919 /* PlayerDetailController.m */,
-				CEB90177171DFB0800D6F34A /* ReplicaDetailController.h */,
-				CEB90178171DFB0800D6F34A /* ReplicaDetailController.m */,
 			);
 			path = AirsoftManager;
 			sourceTree = "<group>";
@@ -229,10 +218,33 @@
 		CE40A9A3171A0718006890C8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEDD5B841728A20900395BEB /* background */,
 				CE6CADD0171B56DB00382B14 /* AirsoftManager.sql */,
 				CEB199D4171B468B007A0F18 /* icon */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		CE4BBAE01729D8190064E590 /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				CE6CADCB171B4C7E00382B14 /* PlayerListController.h */,
+				CE6CADCC171B4C7E00382B14 /* PlayerListController.m */,
+				CEA834F3171C8E0C00EE6919 /* PlayerDetailController.h */,
+				CEA834F4171C8E0C00EE6919 /* PlayerDetailController.m */,
+				CEB90177171DFB0800D6F34A /* ReplicaDetailController.h */,
+				CEB90178171DFB0800D6F34A /* ReplicaDetailController.m */,
+			);
+			name = Players;
+			sourceTree = "<group>";
+		};
+		CE4BBAE11729D9C20064E590 /* Matchs */ = {
+			isa = PBXGroup;
+			children = (
+				CE4BBAE21729DA1C0064E590 /* GameListController.h */,
+				CE4BBAE31729DA1C0064E590 /* GameListController.m */,
+			);
+			name = Matchs;
 			sourceTree = "<group>";
 		};
 		CE6CADD2171B57AA00382B14 /* Class */ = {
@@ -244,6 +256,8 @@
 				CE6CADD7171B587F00382B14 /* Replica.m */,
 				CE6CADD9171B789E00382B14 /* Database.h */,
 				CE6CADDA171B789E00382B14 /* Database.m */,
+				CE4BBAE51729DB260064E590 /* Game.h */,
+				CE4BBAE61729DB260064E590 /* Game.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -258,6 +272,38 @@
 				CEB199D5171B4718007A0F18 /* 101-gameplan.png */,
 			);
 			name = icon;
+			sourceTree = "<group>";
+		};
+		CEB9017A171E11D000D6F34A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CE40A9721719B9B8006890C8 /* MainStoryboard_iPhone.storyboard */,
+				CE40A9691719B9B8006890C8 /* AppDelegate.h */,
+				CE40A96A1719B9B8006890C8 /* AppDelegate.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		CEB9017B171E128B00D6F34A /* FPSTools */ = {
+			isa = PBXGroup;
+			children = (
+				CEB199CB171AE822007A0F18 /* CorrespFPSController.h */,
+				CEB199CC171AE822007A0F18 /* CorrespFPSController.m */,
+				CEB199CE171AF69B007A0F18 /* CorrespFPSWeightController.h */,
+				CEB199CF171AF69B007A0F18 /* CorrespFPSWeightController.m */,
+				CEB199D1171B1183007A0F18 /* CorrespFPSUnitController.h */,
+				CEB199D2171B1183007A0F18 /* CorrespFPSUnitController.m */,
+			);
+			name = FPSTools;
+			sourceTree = "<group>";
+		};
+		CEDD5B841728A20900395BEB /* background */ = {
+			isa = PBXGroup;
+			children = (
+				CEDD5B851728A22900395BEB /* tableViewBackground.png */,
+				CEDD5B861728A22900395BEB /* tableViewBackground@2x.png */,
+			);
+			name = background;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +387,8 @@
 				CEB199DE171B473B007A0F18 /* 112-group.png in Resources */,
 				CEB199E0171B4798007A0F18 /* 32-iphone.png in Resources */,
 				CEB199E2171B4846007A0F18 /* 36-toolbox.png in Resources */,
+				CEDD5B871728A22900395BEB /* tableViewBackground.png in Resources */,
+				CEDD5B881728A22900395BEB /* tableViewBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,8 +426,6 @@
 			files = (
 				CE40A9671719B9B8006890C8 /* main.m in Sources */,
 				CE40A96B1719B9B8006890C8 /* AppDelegate.m in Sources */,
-				CE40A97A1719B9B8006890C8 /* FirstViewController.m in Sources */,
-				CE40A9811719B9B8006890C8 /* SecondViewController.m in Sources */,
 				CEB199CD171AE822007A0F18 /* CorrespFPSController.m in Sources */,
 				CEB199D0171AF69B007A0F18 /* CorrespFPSWeightController.m in Sources */,
 				CEB199D3171B1183007A0F18 /* CorrespFPSUnitController.m in Sources */,
@@ -389,6 +435,8 @@
 				CE6CADDB171B789E00382B14 /* Database.m in Sources */,
 				CEA834F5171C8E0C00EE6919 /* PlayerDetailController.m in Sources */,
 				CEB90179171DFB0800D6F34A /* ReplicaDetailController.m in Sources */,
+				CE4BBAE41729DA1C0064E590 /* GameListController.m in Sources */,
+				CE4BBAE71729DB260064E590 /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
