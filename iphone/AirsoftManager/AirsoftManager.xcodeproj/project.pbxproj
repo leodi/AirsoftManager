@@ -25,6 +25,7 @@
 		CE40A9A5171A096D006890C8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE40A9A4171A096D006890C8 /* MapKit.framework */; };
 		CE4BBAE41729DA1C0064E590 /* GameListController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4BBAE31729DA1C0064E590 /* GameListController.m */; };
 		CE4BBAE71729DB260064E590 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4BBAE61729DB260064E590 /* Game.m */; };
+		CE4BBAEA17597E910064E590 /* GameDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4BBAE917597E910064E590 /* GameDetailController.m */; };
 		CE6CADCD171B4C7E00382B14 /* PlayerListController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6CADCC171B4C7E00382B14 /* PlayerListController.m */; };
 		CE6CADCF171B55FE00382B14 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6CADCE171B55FE00382B14 /* libsqlite3.dylib */; };
 		CE6CADD1171B56DB00382B14 /* AirsoftManager.sql in Resources */ = {isa = PBXBuildFile; fileRef = CE6CADD0171B56DB00382B14 /* AirsoftManager.sql */; };
@@ -61,7 +62,6 @@
 		CE40A95C1719B9B8006890C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE40A95E1719B9B8006890C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CE40A9621719B9B8006890C8 /* AirsoftManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirsoftManager-Info.plist"; sourceTree = "<group>"; };
-		CE40A9641719B9B8006890C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE40A9661719B9B8006890C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE40A9681719B9B8006890C8 /* AirsoftManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirsoftManager-Prefix.pch"; sourceTree = "<group>"; };
 		CE40A9691719B9B8006890C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,11 +69,9 @@
 		CE40A96C1719B9B8006890C8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CE40A96E1719B9B8006890C8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CE40A9701719B9B8006890C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CE40A9731719B9B8006890C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		CE40A98B1719B9B8006890C8 /* AirsoftManagerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirsoftManagerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE40A98C1719B9B8006890C8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE40A9941719B9B8006890C8 /* AirsoftManagerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirsoftManagerTests-Info.plist"; sourceTree = "<group>"; };
-		CE40A9961719B9B8006890C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE40A9981719B9B8006890C8 /* AirsoftManagerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirsoftManagerTests.h; sourceTree = "<group>"; };
 		CE40A9991719B9B8006890C8 /* AirsoftManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirsoftManagerTests.m; sourceTree = "<group>"; };
 		CE40A9A4171A096D006890C8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -81,6 +79,11 @@
 		CE4BBAE31729DA1C0064E590 /* GameListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListController.m; sourceTree = "<group>"; };
 		CE4BBAE51729DB260064E590 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		CE4BBAE61729DB260064E590 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		CE4BBAE817597E910064E590 /* GameDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailController.h; sourceTree = "<group>"; };
+		CE4BBAE917597E910064E590 /* GameDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailController.m; sourceTree = "<group>"; };
+		CE4BBAEB175A61FE0064E590 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		CE4BBAEC175A61FE0064E590 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE4BBAED175A61FE0064E590 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE6CADCB171B4C7E00382B14 /* PlayerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListController.h; sourceTree = "<group>"; };
 		CE6CADCC171B4C7E00382B14 /* PlayerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListController.m; sourceTree = "<group>"; };
 		CE6CADCE171B55FE00382B14 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -243,6 +246,8 @@
 			children = (
 				CE4BBAE21729DA1C0064E590 /* GameListController.h */,
 				CE4BBAE31729DA1C0064E590 /* GameListController.m */,
+				CE4BBAE817597E910064E590 /* GameDetailController.h */,
+				CE4BBAE917597E910064E590 /* GameDetailController.m */,
 			);
 			name = Matchs;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = CE40A94E1719B9B8006890C8;
 			productRefGroup = CE40A9581719B9B8006890C8 /* Products */;
@@ -437,6 +443,7 @@
 				CEB90179171DFB0800D6F34A /* ReplicaDetailController.m in Sources */,
 				CE4BBAE41729DA1C0064E590 /* GameListController.m in Sources */,
 				CE4BBAE71729DB260064E590 /* Game.m in Sources */,
+				CE4BBAEA17597E910064E590 /* GameDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +469,7 @@
 		CE40A9631719B9B8006890C8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE40A9641719B9B8006890C8 /* en */,
+				CE4BBAEC175A61FE0064E590 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -470,7 +477,7 @@
 		CE40A9721719B9B8006890C8 /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE40A9731719B9B8006890C8 /* en */,
+				CE4BBAEB175A61FE0064E590 /* fr */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -478,7 +485,7 @@
 		CE40A9951719B9B8006890C8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE40A9961719B9B8006890C8 /* en */,
+				CE4BBAED175A61FE0064E590 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
