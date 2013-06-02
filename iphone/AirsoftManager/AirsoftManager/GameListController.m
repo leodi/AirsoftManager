@@ -81,7 +81,6 @@
         //gameDetail.game = [[Game alloc] initWithData:0 id_player:self.playerDetail.id name:nil velocity:0];
         gameDetail.gameListController = self;
     }
-    
 }
 
 #pragma mark - Table view data source

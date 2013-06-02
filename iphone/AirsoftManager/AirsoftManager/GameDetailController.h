@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Game.h"
 #import "GameListController.h"
+#import "PlayerListController.h"
 
 @class GameListController;
 @interface GameDetailController : UIViewController <UITableViewDelegate, UITableViewDataSource>

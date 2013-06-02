@@ -146,6 +146,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="r5Z-16-Qiu" kind="push" identifier="addPlayerFromGame" id="8II-5N-X2s"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BYm-Io-7hx">
                                 <constraints>
@@ -411,7 +414,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="@Player Detail" id="Qhc-Sq-rA6">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="organize" id="rNN-6o-pM2">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="rNN-6o-pM2">
                             <connections>
                                 <action selector="save:" destination="PBp-Zv-AuD" id="70N-DJ-zlX"/>
                             </connections>
@@ -504,7 +507,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="@Replica" id="BzK-tz-bOm">
                         <barButtonItem key="backBarButtonItem" title="dd" id="fE7-cm-bDO"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="organize" id="aTb-RI-gr8">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="aTb-RI-gr8">
                             <connections>
                                 <action selector="save:" destination="9Pp-di-fiu" id="7oF-0G-w8a"/>
                             </connections>
@@ -856,6 +859,7 @@
             <relationships>
                 <relationship kind="outlet" name="date" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="playerTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIBarButtonItem"/>
             </relationships>
@@ -906,8 +910,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="uRK-9L-4He"/>
+        <segue reference="1wp-Wl-L59"/>
+        <segue reference="8II-5N-X2s"/>
         <segue reference="e8x-ec-f2d"/>
-        <segue reference="ypB-o7-vqx"/>
-        <segue reference="4Rn-ad-5Ew"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,13 +12,15 @@
 
 @interface PlayerListController : UITableViewController <UISearchBarDelegate,UISearchDisplayDelegate>
 
-
+@property BOOL isFromGames;
 @property (weak, nonatomic) IBOutlet UISearchBar *seachBar;
 @property (nonatomic, retain) NSArray *players;
+@property (nonatomic, retain) NSArray *playersSection;
 @property (nonatomic, retain) NSArray *teams;
 @property (nonatomic, retain) NSArray *searchResults;
 
 -(void)reloadPlayers;
+-(NSArray *)playersArrayToSection:(NSArray *)players;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 

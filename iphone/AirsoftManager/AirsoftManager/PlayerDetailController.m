@@ -136,6 +136,7 @@
     [self.playerListController.tableView reloadData];
     
     [self activeAddReplica];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

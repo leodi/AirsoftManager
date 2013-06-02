@@ -31,13 +31,36 @@
     
     self.date.inputView = self.datePicker;
     self.date.inputAccessoryView = self.dateToolbar;
+
     if ([self.game.name length] != 0)
         self.date.text = [dateFormatter stringFromDate:[self.game date]];
     
     if ([self.game.name length] != 0)
+    {
+        self.name.text = [self.game name];
         self.navigationItem.title = [self.game name];
+        
+        [self.saveButton setEnabled:YES];
+    }
     else
         self.navigationItem.title = @"-";
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapRecognizer];
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"addPlayerFromGame"])
+    {
+        PlayerListController *playerListController = [segue destinationViewController];
+        playerListController.isFromGames = YES;
+    }
+}
+
+-(void)tap:(UITapGestureRecognizer *)gr {
+    [self.view endEditing:YES];
 }
 
 -(void) cancelDate {

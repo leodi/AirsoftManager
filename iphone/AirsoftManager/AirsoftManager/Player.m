@@ -39,14 +39,27 @@ static Player *sharedPlayer = nil;
     sqlite3 *database = [[Database sharedDatabase] getDatabase];
     sqlite3_stmt *compiledStatement;
     NSMutableArray *players = [[NSMutableArray alloc] init];
+    char *tmp;
     
     if (sqlite3_prepare_v2(database, "SELECT id, name, team FROM player", -1, &compiledStatement, NULL) == SQLITE_OK)
     {
         while (sqlite3_step(compiledStatement) == SQLITE_ROW)
         {
             int l_id = sqlite3_column_int(compiledStatement, 0);
-            NSString *l_name = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
-            NSString *l_team = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
+            
+            NSString *l_name;
+            tmp = (char *)sqlite3_column_text(compiledStatement, 1);
+            if (tmp)
+                l_name = [NSString stringWithUTF8String:tmp];
+            else
+                l_name = [NSString alloc];
+            
+            NSString *l_team;
+            tmp = (char *)sqlite3_column_text(compiledStatement, 2);
+            if (tmp)
+                l_team = [NSString stringWithUTF8String:tmp];
+            else
+                l_team = [NSString alloc];
             
             Player *player = [[Player alloc] initWithData:l_id name:l_name team:l_team];
             [player getReplicas];
@@ -69,6 +82,9 @@ static Player *sharedPlayer = nil;
 -(void)save {
     sqlite3 *database = [[Database sharedDatabase] getDatabase];
     sqlite3_stmt *stmt;
+    
+    if ([self.team length] == 0)
+        self.team = @"Freelance";
     
     const char * query = "INSERT OR REPLACE INTO player (id, name, team) VALUES (?,?,?)";
     if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)

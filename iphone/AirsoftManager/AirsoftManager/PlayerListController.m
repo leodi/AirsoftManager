@@ -15,15 +15,6 @@
 
 @implementation PlayerListController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,6 +34,38 @@
 
 -(void)reloadPlayers {
     self.players = [[NSArray alloc] initWithArray:[[Player sharedPlayer] getAllPlayers]];
+    self.playersSection = [self playersArrayToSection:self.players];
+}
+
+
+-(NSArray *)playersArrayToSection:(NSArray *)players {
+    NSMutableArray *section = [[NSMutableArray alloc] init];
+    
+    NSEnumerator *e = [players objectEnumerator];
+    NSEnumerator *e_section;
+    
+    Player *player;
+    Player *tmp_player;
+    NSMutableArray *tmp_section;
+    
+    while (player = [e nextObject])
+    {
+        e_section = [section objectEnumerator];
+        while (tmp_section = [e_section nextObject])
+        {
+            tmp_player = [tmp_section objectAtIndex:0];
+            if ([tmp_player.team isEqualToString:player.team])
+            {
+                [tmp_section addObject:player];
+                break ;
+            }
+        }
+        if (!tmp_section)
+        {
+            [section addObject:[[NSMutableArray alloc] initWithObjects:player, nil]];
+        }
+    }
+    return ([[NSArray alloc] initWithArray:section]);
 }
 
 
@@ -80,7 +103,7 @@
         else
         {
             myIndexPath = [self.tableView indexPathForCell:sender];
-            playerDetail.playerDetail = [self.players objectAtIndex:[myIndexPath row]];
+            playerDetail.playerDetail = [[self.playersSection objectAtIndex:myIndexPath.section] objectAtIndex:myIndexPath.row];
         }
         
         playerDetail.playerListController = self;
@@ -98,7 +121,10 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+        return 1;
+    else
+        return [self.playersSection count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -106,7 +132,14 @@
     if (tableView == self.searchDisplayController.searchResultsTableView)
         return [self.searchResults count];
     else
-        return [self.players count];
+        return [[self.playersSection objectAtIndex:section] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+        return nil;
+    else
+        return [[[self.playersSection objectAtIndex:section] objectAtIndex:0] team];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,7 +156,7 @@
     if (tableView == self.searchDisplayController.searchResultsTableView)
         player = [self.searchResults objectAtIndex:indexPath.row];
     else
-        player = [self.players objectAtIndex:indexPath.row];
+        player = [[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
     cell.textLabel.text = player.name;
     cell.detailTextLabel.text = player.team;
@@ -142,7 +175,7 @@
     Player *player;
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        player = [self.players objectAtIndex:indexPath.row];
+        player = [[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         
         [player delete];
         
