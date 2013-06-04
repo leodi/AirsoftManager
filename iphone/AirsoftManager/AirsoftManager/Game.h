@@ -21,9 +21,11 @@
 +(Game *)sharedGame;
 
 -(NSArray *)getAllGames;
+-(NSArray *)getAllPlayers;
 -(Game *)initWithData:(int)i name:(NSString *)n date:(NSDate *)d;
 -(void)getPlayers;
 -(void)save;
 -(void)delete;
+-(void)addPlayer:(Player *)player;
 
 @end

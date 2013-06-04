@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
-#import "PlayerDetailController.h"
+#import "PlayerDetailController.h" 
+#import "GameDetailController.h" 
 
+@class GameDetailController;
 @interface PlayerListController : UITableViewController <UISearchBarDelegate,UISearchDisplayDelegate>
 
 @property BOOL isFromGames;
@@ -18,6 +20,8 @@
 @property (nonatomic, retain) NSArray *playersSection;
 @property (nonatomic, retain) NSArray *teams;
 @property (nonatomic, retain) NSArray *searchResults;
+
+@property (strong, nonatomic) GameDetailController *parentGameDetailController;
 
 -(void)reloadPlayers;
 -(NSArray *)playersArrayToSection:(NSArray *)players;

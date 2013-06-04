@@ -34,40 +34,8 @@
 
 -(void)reloadPlayers {
     self.players = [[NSArray alloc] initWithArray:[[Player sharedPlayer] getAllPlayers]];
-    self.playersSection = [self playersArrayToSection:self.players];
+    self.playersSection = [Player playersArrayToSection:self.players];
 }
-
-
--(NSArray *)playersArrayToSection:(NSArray *)players {
-    NSMutableArray *section = [[NSMutableArray alloc] init];
-    
-    NSEnumerator *e = [players objectEnumerator];
-    NSEnumerator *e_section;
-    
-    Player *player;
-    Player *tmp_player;
-    NSMutableArray *tmp_section;
-    
-    while (player = [e nextObject])
-    {
-        e_section = [section objectEnumerator];
-        while (tmp_section = [e_section nextObject])
-        {
-            tmp_player = [tmp_section objectAtIndex:0];
-            if ([tmp_player.team isEqualToString:player.team])
-            {
-                [tmp_section addObject:player];
-                break ;
-            }
-        }
-        if (!tmp_section)
-        {
-            [section addObject:[[NSMutableArray alloc] initWithObjects:player, nil]];
-        }
-    }
-    return ([[NSArray alloc] initWithArray:section]);
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -89,24 +57,34 @@
      return (YES);
  }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
     if ([[segue identifier] isEqualToString:@"ShowPlayerDetail1"] || [[segue identifier] isEqualToString:@"ShowPlayerDetail2"])
     {
-        NSIndexPath *myIndexPath;
-        PlayerDetailController *playerDetail = [segue destinationViewController];
-        
-        if (sender == self.searchDisplayController.searchResultsTableView)
+        if (self.isFromGames == YES)
         {
-            myIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-            playerDetail.playerDetail = [self.searchResults objectAtIndex:[myIndexPath row]];
+            NSIndexPath *myIndexPath;
+            myIndexPath = [self.tableView indexPathForCell:sender];
+            
+            [self.parentGameDetailController addPlayer:[[self.playersSection objectAtIndex:myIndexPath.section] objectAtIndex:myIndexPath.row]];
         }
         else
         {
-            myIndexPath = [self.tableView indexPathForCell:sender];
-            playerDetail.playerDetail = [[self.playersSection objectAtIndex:myIndexPath.section] objectAtIndex:myIndexPath.row];
-        }
+            NSIndexPath *myIndexPath;
+            PlayerDetailController *playerDetail = [segue destinationViewController];
         
-        playerDetail.playerListController = self;
+            if (sender == self.searchDisplayController.searchResultsTableView)
+            {
+                myIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+                playerDetail.playerDetail = [self.searchResults objectAtIndex:[myIndexPath row]];
+            }
+            else
+            {
+                myIndexPath = [self.tableView indexPathForCell:sender];
+                playerDetail.playerDetail = [[self.playersSection objectAtIndex:myIndexPath.section] objectAtIndex:myIndexPath.row];
+            }
+        
+            playerDetail.playerListController = self;
+        }
     }
     else if ([[segue identifier] isEqualToString:@"AddPlayer"])
     {
@@ -158,6 +136,9 @@
     else
         player = [[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
+    if (self.isFromGames == YES)
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    
     cell.textLabel.text = player.name;
     cell.detailTextLabel.text = player.team;
     
@@ -166,7 +147,10 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    if (self.isFromGames == YES)
+        return NO;
+    else
+        return YES;
 }
 
 

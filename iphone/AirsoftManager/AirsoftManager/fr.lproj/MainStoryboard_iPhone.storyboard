@@ -107,13 +107,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="SPm-Pr-oST">
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="SPm-Pr-oST">
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="239" id="0bu-aq-SAs"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="247" type="user" id="zpD-nD-6K9"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="ROt-5H-1RN">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="GamePlayer" id="ROt-5H-1RN">
                                         <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -123,6 +123,10 @@
                                         </view>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XBY-ZC-waQ" id="nqa-ZI-XnM"/>
+                                    <outlet property="delegate" destination="XBY-ZC-waQ" id="8EU-BF-Eew"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="@X Joueurs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-hu-vSn">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -136,7 +140,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feZ-Tz-fuR">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="bil-TZ-IQ8"/>
+                                    <constraint firstAttribute="height" constant="27" id="Ne0-ep-HYT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Ajouter">
@@ -158,24 +162,25 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="h26-YD-DeG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0VO-Hd-Nx5"/>
                             <constraint firstItem="WWQ-K3-YSz" firstAttribute="top" secondItem="9KV-CX-12k" secondAttribute="top" constant="20" symbolic="YES" type="default" id="17n-oP-JEA"/>
+                            <constraint firstItem="SPm-Pr-oST" firstAttribute="bottom" secondItem="9KV-CX-12k" secondAttribute="bottom" type="default" id="2Um-y2-53q"/>
                             <constraint firstItem="h26-YD-DeG" firstAttribute="leading" secondItem="feZ-Tz-fuR" secondAttribute="leading" type="default" id="4zN-xp-dIB"/>
                             <constraint firstAttribute="trailing" secondItem="feZ-Tz-fuR" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="6a2-eP-xsI"/>
-                            <constraint firstItem="ATa-3U-7FZ" firstAttribute="top" secondItem="9KV-CX-12k" secondAttribute="top" constant="54" id="Bey-ML-oLX"/>
                             <constraint firstItem="ATa-3U-7FZ" firstAttribute="leading" secondItem="9KV-CX-12k" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CSN-Hg-qc8"/>
-                            <constraint firstItem="SPm-Pr-oST" firstAttribute="leading" secondItem="9KV-CX-12k" secondAttribute="leading" type="default" id="GU4-Qv-9dU"/>
-                            <constraint firstItem="SPm-Pr-oST" firstAttribute="bottom" secondItem="9KV-CX-12k" secondAttribute="bottom" type="default" id="OKJ-8E-Oek"/>
+                            <constraint firstItem="SPm-Pr-oST" firstAttribute="top" secondItem="feZ-Tz-fuR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="HYG-cA-UHw"/>
+                            <constraint firstItem="SPm-Pr-oST" firstAttribute="leading" secondItem="9KV-CX-12k" secondAttribute="leading" type="default" id="ObW-Op-h0s"/>
                             <constraint firstItem="BYm-Io-7hx" firstAttribute="top" secondItem="9KV-CX-12k" secondAttribute="top" constant="16" id="USy-48-xgO"/>
-                            <constraint firstItem="SPm-Pr-oST" firstAttribute="trailing" secondItem="9KV-CX-12k" secondAttribute="trailing" type="default" id="W01-IG-BDq"/>
                             <constraint firstAttribute="trailing" secondItem="BYm-Io-7hx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Wcg-Mn-ste"/>
                             <constraint firstItem="feZ-Tz-fuR" firstAttribute="baseline" secondItem="UVe-hu-vSn" secondAttribute="baseline" type="default" id="alu-68-no5"/>
-                            <constraint firstItem="h26-YD-DeG" firstAttribute="top" secondItem="9KV-CX-12k" secondAttribute="top" constant="50" id="fRi-28-fZg"/>
                             <constraint firstItem="WWQ-K3-YSz" firstAttribute="leading" secondItem="9KV-CX-12k" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hL5-H4-Ng0"/>
-                            <constraint firstItem="feZ-Tz-fuR" firstAttribute="top" secondItem="9KV-CX-12k" secondAttribute="top" constant="85" id="lFc-51-hd0"/>
+                            <constraint firstItem="ATa-3U-7FZ" firstAttribute="top" secondItem="9KV-CX-12k" secondAttribute="top" constant="50" id="jZu-bQ-RfS"/>
+                            <constraint firstItem="ATa-3U-7FZ" firstAttribute="top" secondItem="h26-YD-DeG" secondAttribute="top" type="default" id="jgz-TQ-zFQ"/>
+                            <constraint firstItem="SPm-Pr-oST" firstAttribute="top" secondItem="9KV-CX-12k" secondAttribute="top" constant="120" type="user" id="oYx-8c-w9W"/>
                             <constraint firstItem="BYm-Io-7hx" firstAttribute="leading" secondItem="h26-YD-DeG" secondAttribute="leading" type="default" id="ppL-nJ-C7J"/>
+                            <constraint firstItem="SPm-Pr-oST" firstAttribute="trailing" secondItem="9KV-CX-12k" secondAttribute="trailing" type="default" id="q3b-fz-o63"/>
                             <constraint firstItem="UVe-hu-vSn" firstAttribute="leading" secondItem="9KV-CX-12k" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tDO-ln-AZV"/>
                             <constraint firstItem="UVe-hu-vSn" firstAttribute="centerY" secondItem="feZ-Tz-fuR" secondAttribute="centerY" type="default" id="tUC-0m-ZGA"/>
                         </constraints>
@@ -196,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19D-qi-gf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="117"/>
+            <point key="canvasLocation" x="526" y="117"/>
         </scene>
         <!--Player List Controller - Liste des joueurs-->
         <scene sceneID="gcd-GN-d7v">
@@ -845,12 +850,14 @@
         <class className="CorrespFPSUnitController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CorrespFPSUnitController.h"/>
             <relationships>
+                <relationship kind="action" name="OnClick_Back:"/>
                 <relationship kind="outlet" name="parentButtonCaller" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="CorrespFPSWeightController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CorrespFPSWeightController.h"/>
             <relationships>
+                <relationship kind="action" name="OnClick_Back:"/>
                 <relationship kind="outlet" name="parentButtonCaller" candidateClass="UIButton"/>
             </relationships>
         </class>

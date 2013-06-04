@@ -120,4 +120,38 @@ static Player *sharedPlayer = nil;
     sqlite3_finalize(stmt);    
 }
 
+
+
+
+
++(NSArray *)playersArrayToSection:(NSArray *)players {
+    NSMutableArray *section = [[NSMutableArray alloc] init];
+    
+    NSEnumerator *e = [players objectEnumerator];
+    NSEnumerator *e_section;
+    
+    Player *player;
+    Player *tmp_player;
+    NSMutableArray *tmp_section;
+    
+    while (player = [e nextObject])
+    {
+        e_section = [section objectEnumerator];
+        while (tmp_section = [e_section nextObject])
+        {
+            tmp_player = [tmp_section objectAtIndex:0];
+            if ([tmp_player.team isEqualToString:player.team])
+            {
+                [tmp_section addObject:player];
+                break ;
+            }
+        }
+        if (!tmp_section)
+        {
+            [section addObject:[[NSMutableArray alloc] initWithObjects:player, nil]];
+        }
+    }
+    return ([[NSArray alloc] initWithArray:section]);
+}
+
 @end

@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSMutableArray *replicas;
 
 +(Player *)sharedPlayer;
++(NSArray *)playersArrayToSection:(NSArray *)players;
 
 -(NSMutableArray *)getAllPlayers;
 -(Player *)initWithData:(int)i name:(NSString *)n team:(NSString *)t;
