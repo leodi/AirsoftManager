@@ -117,7 +117,7 @@ static Database *sharedDatabase;
         NSLog(@"KO Drop game, %s", error);
 #endif
     
-    sqlStatement = @"CREATE TABLE IF NOT EXISTS game_player (id_game INTEGER, id_player INTEGER)";
+    sqlStatement = @"CREATE TABLE IF NOT EXISTS game_player (id_game INTEGER, id_player INTEGER, chrony INTEGER, payment INTEGER)";
     if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
         NSLog(@"KO Create table game_player, %s", error);
     

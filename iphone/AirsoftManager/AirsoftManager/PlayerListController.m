@@ -29,6 +29,9 @@
     
     //self.searchDisplayController.searchResultsDelegate = self;
     [self reloadPlayers];
+    
+    if (self.isFromGames)
+        [self.seachBar setHidden:YES];
 
 }
 
@@ -57,34 +60,32 @@
      return (YES);
  }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if (self.isFromGames == YES && [identifier isEqualToString:@"ShowPlayerDetail1"])
+    {
+        return NO;
+    }
+    return YES;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowPlayerDetail1"] || [[segue identifier] isEqualToString:@"ShowPlayerDetail2"])
     {
-        if (self.isFromGames == YES)
+        NSIndexPath *myIndexPath;
+        PlayerDetailController *playerDetail = [segue destinationViewController];
+        
+        if (sender == self.searchDisplayController.searchResultsTableView)
         {
-            NSIndexPath *myIndexPath;
-            myIndexPath = [self.tableView indexPathForCell:sender];
-            
-            [self.parentGameDetailController addPlayer:[[self.playersSection objectAtIndex:myIndexPath.section] objectAtIndex:myIndexPath.row]];
+            myIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            playerDetail.playerDetail = [self.searchResults objectAtIndex:[myIndexPath row]];
         }
         else
         {
-            NSIndexPath *myIndexPath;
-            PlayerDetailController *playerDetail = [segue destinationViewController];
-        
-            if (sender == self.searchDisplayController.searchResultsTableView)
-            {
-                myIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-                playerDetail.playerDetail = [self.searchResults objectAtIndex:[myIndexPath row]];
-            }
-            else
-            {
-                myIndexPath = [self.tableView indexPathForCell:sender];
-                playerDetail.playerDetail = [[self.playersSection objectAtIndex:myIndexPath.section] objectAtIndex:myIndexPath.row];
-            }
-        
-            playerDetail.playerListController = self;
+            myIndexPath = [self.tableView indexPathForCell:sender];
+            playerDetail.playerDetail = [[self.playersSection objectAtIndex:myIndexPath.section] objectAtIndex:myIndexPath.row];
         }
+        
+        playerDetail.playerListController = self;
     }
     else if ([[segue identifier] isEqualToString:@"AddPlayer"])
     {
@@ -179,6 +180,12 @@
     if (tableView == self.searchDisplayController.searchResultsTableView)
     {
         [self performSegueWithIdentifier:@"ShowPlayerDetail1" sender:tableView];
+    }
+    else if (self.isFromGames == YES)
+    {        
+        [self.parentGameDetailController addPlayer:[[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+        [self.parentGameDetailController.playerTable reloadData];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

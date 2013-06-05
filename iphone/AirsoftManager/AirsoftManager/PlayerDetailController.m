@@ -36,9 +36,15 @@
     if (self.playerDetail.id != 0)
         [self activeAddReplica];
     
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-    tapRecognizer.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tapRecognizer];
+    if (self.isFromGames)
+    {
+        [self.bottomToolbar setHidden:NO];
+        
+        if (self.playerDetail.chrony)
+            [self.buttonValidateChrony setStyle:UIBarButtonItemStyleDone];
+        if (self.playerDetail.payment)
+            [self.buttonValidatePayment setStyle:UIBarButtonItemStyleDone];
+    }
 }
 
 -(void)tap:(UITapGestureRecognizer *)gr {
@@ -140,6 +146,7 @@
 }
 
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowReplicaDetail1"] || [[segue identifier] isEqualToString:@"ShowReplicaDetail2"])
     {
@@ -158,4 +165,37 @@
     
 }
 
+- (IBAction)validateChrony:(id)sender {
+    if ([self.buttonValidateChrony style] == UIBarButtonItemStyleDone)
+    {
+        [self.gameDetailController setChronyStateFor:self.playerDetail state:NO];
+        [self.buttonValidateChrony setStyle:UIBarButtonItemStyleBordered];
+    }
+    else
+    {
+        [self.gameDetailController setChronyStateFor:self.playerDetail state:YES];
+        [self.buttonValidateChrony setStyle:UIBarButtonItemStyleDone];
+    }
+    [self.gameDetailController reloadPlayers];
+    [self.gameDetailController.playerTable reloadData];
+}
+
+- (IBAction)validatePayment:(id)sender {
+    if ([self.buttonValidatePayment style] == UIBarButtonItemStyleDone)
+    {
+        [self.gameDetailController setPaymentStateFor:self.playerDetail state:NO];
+        [self.buttonValidatePayment setStyle:UIBarButtonItemStyleBordered];
+    }
+    else
+    {
+        [self.gameDetailController setPaymentStateFor:self.playerDetail state:YES];
+        [self.buttonValidatePayment setStyle:UIBarButtonItemStyleDone];
+    }
+    [self.gameDetailController reloadPlayers];
+    [self.gameDetailController.playerTable reloadData];
+}
+
+- (IBAction)cancel:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

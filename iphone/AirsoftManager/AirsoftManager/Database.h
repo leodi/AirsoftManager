@@ -10,7 +10,7 @@
 #import <sqlite3.h>
 
 #ifndef __DEBUG__
-#define __DEBUG__ 1
+#define __DEBUG__ 0
 #endif
 
 @interface Database : NSObject {

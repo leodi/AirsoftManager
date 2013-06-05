@@ -14,7 +14,7 @@ static Player *sharedPlayer = nil;
 
 @implementation Player
 
-@synthesize id, name, team, replicas;
+@synthesize id, name, team, replicas, chrony, payment;
 
 
 #pragma mark -

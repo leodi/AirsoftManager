@@ -63,7 +63,7 @@ static Game *sharedGame = nil;
     NSMutableArray *players = [[NSMutableArray alloc] init];
     char *tmp;
     
-    if (sqlite3_prepare_v2(database, "SELECT P.id, P.name, P.team FROM player P, game_player GP WHERE GP.id_player=P.id AND GP.id_game=?", -1, &compiledStatement, NULL) == SQLITE_OK)
+    if (sqlite3_prepare_v2(database, "SELECT P.id, P.name, P.team, GP.chrony, GP.payment FROM player P, game_player GP WHERE GP.id_player=P.id AND GP.id_game=?", -1, &compiledStatement, NULL) == SQLITE_OK)
     {
         sqlite3_bind_int(compiledStatement, 1, [self id]);
         while (sqlite3_step(compiledStatement) == SQLITE_ROW)
@@ -85,6 +85,10 @@ static Game *sharedGame = nil;
                 l_team = [NSString alloc];
             
             Player *player = [[Player alloc] initWithData:l_id name:l_name team:l_team];
+            
+            [player setChrony:(sqlite3_column_int(compiledStatement, 3) == 1 ? YES : NO)];
+            [player setPayment:(sqlite3_column_int(compiledStatement, 4) == 1 ? YES : NO)];
+
             [player getReplicas];
             [players addObject:player];
         }
@@ -138,6 +142,21 @@ static Game *sharedGame = nil;
     sqlite3_finalize(stmt);
 }
 
+
+-(void)removePlayer:(Player *)player {
+    sqlite3 *database = [[Database sharedDatabase] getDatabase];
+    sqlite3_stmt *stmt;
+    
+    const char * query = "DELETE FROM game_player WHERE id_game=? AND id_player=?";
+    if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)
+        NSLog(@"Error sqlite prepare update [%s]", sqlite3_errmsg(database));
+    sqlite3_bind_int(stmt, 1, [self id]);
+    sqlite3_bind_int(stmt, 2, [player id]);
+    
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+}
+
 -(void)delete {
     sqlite3 *database = [[Database sharedDatabase] getDatabase];
     sqlite3_stmt *stmt;
@@ -147,6 +166,36 @@ static Game *sharedGame = nil;
     if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)
         NSLog(@"Error sqlite prepare update [%s]", sqlite3_errmsg(database));
     sqlite3_bind_int(stmt, 1, [self id]);
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+}
+
+-(void)setChronyStateFor:(Player *)player state:(BOOL)state {
+    sqlite3 *database = [[Database sharedDatabase] getDatabase];
+    sqlite3_stmt *stmt;
+    
+    const char * query = "UPDATE game_player SET chrony=? WHERE id_game=? AND id_player=?";
+    if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)
+        NSLog(@"Error sqlite prepare update [%s]", sqlite3_errmsg(database));
+    sqlite3_bind_int(stmt, 1, (state == YES ? 1 : 0));
+    sqlite3_bind_int(stmt, 2, [self id]);
+    sqlite3_bind_int(stmt, 3, [player id]);
+    
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+}
+
+-(void)setPaymentStateFor:(Player *)player state:(BOOL)state {
+    sqlite3 *database = [[Database sharedDatabase] getDatabase];
+    sqlite3_stmt *stmt;
+    
+    const char * query = "UPDATE game_player SET `payment`=? WHERE id_game=? AND id_player=?";
+    if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)
+        NSLog(@"Error sqlite prepare update [%s]", sqlite3_errmsg(database));
+    sqlite3_bind_int(stmt, 1, (state == YES ? 1 : 0));
+    sqlite3_bind_int(stmt, 2, [self id]);
+    sqlite3_bind_int(stmt, 3, [player id]);
+
     sqlite3_step(stmt);
     sqlite3_finalize(stmt);
 }

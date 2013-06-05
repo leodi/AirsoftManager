@@ -24,8 +24,6 @@
 @property (strong, nonatomic) GameDetailController *parentGameDetailController;
 
 -(void)reloadPlayers;
--(NSArray *)playersArrayToSection:(NSArray *)players;
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 @end

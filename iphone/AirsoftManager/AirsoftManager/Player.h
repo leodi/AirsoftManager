@@ -15,12 +15,17 @@
     int id;
     NSString *name;
     NSString *team;
+    BOOL chrony;
+    BOOL payment;
 }
 
 
 @property (nonatomic) int id;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *team;
+@property (nonatomic) BOOL chrony;
+@property (nonatomic) BOOL payment;
+
 @property (nonatomic, retain) NSMutableArray *replicas;
 
 +(Player *)sharedPlayer;

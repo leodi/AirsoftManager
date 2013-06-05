@@ -29,5 +29,8 @@
 @property (nonatomic, retain) UIToolbar *dateToolbar;
 
 -(void)addPlayer:(Player *)player;
+-(void)setChronyStateFor:(Player *)player state:(BOOL)state;
+-(void)setPaymentStateFor:(Player *)player state:(BOOL)state;
+-(void)reloadPlayers;
 
 @end

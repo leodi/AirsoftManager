@@ -63,6 +63,16 @@
         playerListController.isFromGames = YES;
         playerListController.parentGameDetailController = self;
     }
+    else if ([[segue identifier] isEqualToString:@"showPlayerFromGame1"] || [[segue identifier] isEqualToString:@"showPlayerFromGame2"])
+    {
+        NSIndexPath *myIndexPath;
+        PlayerDetailController *playerDetail = [segue destinationViewController];
+        
+        myIndexPath = [self.playerTable indexPathForCell:sender];
+        playerDetail.playerDetail = [[self.playersSection objectAtIndex:myIndexPath.section] objectAtIndex:myIndexPath.row];
+        playerDetail.isFromGames = YES;
+        playerDetail.gameDetailController = self;
+    }
 }
 
 -(void)tap:(UITapGestureRecognizer *)gr {
@@ -76,11 +86,11 @@
 -(void)addPlayer:(Player *)player {
     [self.game addPlayer:player];
     [self reloadPlayers];
-    [self.playerTable reloadData];
 }
 
 -(void)removePlayer:(Player *)player {
-    //[self.game addPlayer:player];
+    [self.game removePlayer:player];
+    [self reloadPlayers];
 }
 
 -(void) changeDate {
@@ -90,6 +100,14 @@
     [self.saveButton setEnabled:YES];
     [self.date setText:[dateFormatter stringFromDate:self.datePicker.date]];
     [self.date resignFirstResponder];
+}
+
+-(void)setChronyStateFor:(Player *)player state:(BOOL)state {
+    [self.game setChronyStateFor:player state:state];
+}
+
+-(void)setPaymentStateFor:(Player *)player state:(BOOL)state {
+    [self.game setPaymentStateFor:player state:state];
 }
 
 #pragma mark - Table view data source
@@ -110,7 +128,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *kCellID = @"Player";
+	static NSString *kCellID = @"GamePlayer";
 	Player *player;
     
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
@@ -136,15 +154,20 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Player *player;
-    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        player = [[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        Player *player = [[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        NSMutableIndexSet *indexes = [NSMutableIndexSet indexSet];
+        
+        if ([[self.playersSection objectAtIndex:indexPath.section] count] == 1)
+            [indexes addIndex: indexPath.section];
         
         [self removePlayer:player];
         [self reloadPlayers];
         
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteSections:indexes withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

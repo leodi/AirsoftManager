@@ -27,5 +27,9 @@
 -(void)save;
 -(void)delete;
 -(void)addPlayer:(Player *)player;
+-(void)removePlayer:(Player *)player;
+
+-(void)setChronyStateFor:(Player *)player state:(BOOL)state;
+-(void)setPaymentStateFor:(Player *)player state:(BOOL)state;
 
 @end

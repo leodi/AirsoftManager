@@ -121,6 +121,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="PBp-Zv-AuD" kind="push" identifier="showPlayerFromGame1" id="sZG-wh-sgb"/>
+                                            <segue destination="PBp-Zv-AuD" kind="push" identifier="showPlayerFromGame2" trigger="accessoryAction" id="GTF-br-rSU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -276,7 +280,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="99" y="1467"/>
+            <point key="canvasLocation" x="859" y="1467"/>
         </scene>
         <!--Player Detail Controller - @Player Detail-->
         <scene sceneID="yTL-hB-rkn">
@@ -296,7 +300,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="@Player" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUr-m2-aIz">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="hio-bF-3S2"/>
+                                    <constraint firstAttribute="width" constant="150" id="Qoz-9B-svd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -329,54 +333,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sA5-bz-uGV">
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="iHh-VQ-ilN">
-                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="separatorColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Replica" textLabel="M4D-SV-JYv" detailTextLabel="AjR-bH-Lws" style="IBUITableViewCellStyleValue1" id="tN5-93-n09">
-                                                <rect key="frame" x="0.0" y="46" width="280" height="46"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="10" y="1" width="227" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="@replica" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4D-SV-JYv">
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </label>
-                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="@velocity" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjR-bH-Lws">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <connections>
-                                                    <segue destination="9Pp-di-fiu" kind="push" identifier="ShowReplicaDetail1" id="4Rn-ad-5Ew"/>
-                                                    <segue destination="9Pp-di-fiu" kind="push" identifier="ShowReplicaDetail2" trigger="accessoryAction" id="Xrg-ha-9AZ"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="PBp-Zv-AuD" id="Bvf-LP-gDu"/>
-                                            <outlet property="delegate" destination="PBp-Zv-AuD" id="wMm-QZ-ZT1"/>
-                                        </connections>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="iHh-VQ-ilN" firstAttribute="bottom" secondItem="sA5-bz-uGV" secondAttribute="bottom" type="default" id="I4p-0f-rNh"/>
-                                    <constraint firstItem="iHh-VQ-ilN" firstAttribute="leading" secondItem="sA5-bz-uGV" secondAttribute="leading" type="default" id="ZhK-Ve-8su"/>
-                                    <constraint firstItem="iHh-VQ-ilN" firstAttribute="centerX" secondItem="sA5-bz-uGV" secondAttribute="centerX" type="default" id="ewg-Rq-pHd"/>
-                                    <constraint firstItem="iHh-VQ-ilN" firstAttribute="top" secondItem="sA5-bz-uGV" secondAttribute="top" type="default" id="nKe-EE-w0C"/>
-                                    <constraint firstItem="iHh-VQ-ilN" firstAttribute="trailing" secondItem="sA5-bz-uGV" secondAttribute="trailing" type="default" id="pmM-le-4dO"/>
-                                    <constraint firstItem="iHh-VQ-ilN" firstAttribute="centerY" secondItem="sA5-bz-uGV" secondAttribute="centerY" type="default" id="xZf-UB-5ya"/>
-                                </constraints>
-                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UH-8s-5BT">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="ELi-yV-LHy"/>
@@ -394,28 +350,83 @@
                                     <segue destination="9Pp-di-fiu" kind="push" identifier="AddReplica" id="uRK-9L-4He"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="8L1-3Q-vpd">
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Replica" textLabel="bzE-Vk-gto" detailTextLabel="qal-xX-dFv" style="IBUITableViewCellStyleValue1" id="A8A-fl-10j">
+                                        <rect key="frame" x="0.0" y="46" width="280" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="227" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="@replica" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bzE-Vk-gto">
+                                                    <rect key="frame" x="10" y="11" width="72" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="@velocity" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qal-xX-dFv">
+                                                    <rect key="frame" x="143" y="11" width="74" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PBp-Zv-AuD" id="eaX-dx-QNP"/>
+                                    <outlet property="delegate" destination="PBp-Zv-AuD" id="Euk-h9-E97"/>
+                                </connections>
+                            </tableView>
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="QM5-av-TYs">
+                                <items>
+                                    <barButtonItem title="Valider Chrony" id="44f-LS-toK">
+                                        <connections>
+                                            <action selector="validateChrony:" destination="PBp-Zv-AuD" id="gU7-yA-t16"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Valider Paiement" id="YV0-Xn-7AK">
+                                        <connections>
+                                            <action selector="validatePayment:" destination="PBp-Zv-AuD" id="9qo-dt-c97"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Retour" id="Pjq-AR-eSA">
+                                        <connections>
+                                            <action selector="cancel:" destination="PBp-Zv-AuD" id="jG5-sN-rwh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="qBj-Au-cNT" firstAttribute="top" secondItem="iqH-xs-SKi" secondAttribute="top" constant="20" symbolic="YES" type="user" id="4J9-YF-Wde"/>
                             <constraint firstItem="A2L-TZ-fFO" firstAttribute="top" secondItem="qBj-Au-cNT" secondAttribute="bottom" constant="18" type="user" id="7aG-It-6m2"/>
+                            <constraint firstItem="QM5-av-TYs" firstAttribute="bottom" secondItem="iqH-xs-SKi" secondAttribute="bottom" type="default" id="B8C-Lt-KED"/>
                             <constraint firstItem="qBj-Au-cNT" firstAttribute="leading" secondItem="iqH-xs-SKi" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="Gix-qI-KAL"/>
                             <constraint firstAttribute="trailing" secondItem="CAb-mf-8Fs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GmH-vB-m4x"/>
+                            <constraint firstItem="8L1-3Q-vpd" firstAttribute="leading" secondItem="iqH-xs-SKi" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JQd-ui-AJv"/>
                             <constraint firstItem="A2L-TZ-fFO" firstAttribute="trailing" secondItem="qBj-Au-cNT" secondAttribute="trailing" type="default" id="LuR-n0-9Gv"/>
-                            <constraint firstItem="sA5-bz-uGV" firstAttribute="leading" secondItem="iqH-xs-SKi" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="P1x-Pw-xl6"/>
+                            <constraint firstItem="8L1-3Q-vpd" firstAttribute="top" secondItem="8UH-8s-5BT" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="VYE-IZ-AG1"/>
                             <constraint firstItem="CAb-mf-8Fs" firstAttribute="leading" secondItem="UUr-m2-aIz" secondAttribute="leading" type="default" id="Vfg-4o-TCn"/>
+                            <constraint firstItem="QM5-av-TYs" firstAttribute="trailing" secondItem="iqH-xs-SKi" secondAttribute="trailing" type="default" id="aRz-lA-53Q"/>
+                            <constraint firstAttribute="trailing" secondItem="8L1-3Q-vpd" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="bg0-vW-tGX"/>
                             <constraint firstItem="8UH-8s-5BT" firstAttribute="baseline" secondItem="hKf-Au-hXG" secondAttribute="baseline" type="default" id="buo-dq-3ac"/>
-                            <constraint firstAttribute="bottom" secondItem="sA5-bz-uGV" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="coX-qn-wGs"/>
-                            <constraint firstAttribute="trailing" secondItem="sA5-bz-uGV" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="d7N-cg-9ZR"/>
                             <constraint firstItem="A2L-TZ-fFO" firstAttribute="leading" secondItem="iqH-xs-SKi" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fmF-cd-LRb"/>
-                            <constraint firstItem="sA5-bz-uGV" firstAttribute="top" secondItem="hKf-Au-hXG" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="gAf-jO-n4W"/>
                             <constraint firstAttribute="trailing" secondItem="8UH-8s-5BT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hhk-O8-KYf"/>
                             <constraint firstItem="UUr-m2-aIz" firstAttribute="top" secondItem="iqH-xs-SKi" secondAttribute="top" constant="16" id="i8X-Ba-Vzs"/>
                             <constraint firstItem="hKf-Au-hXG" firstAttribute="leading" secondItem="iqH-xs-SKi" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="l4v-bs-59p"/>
-                            <constraint firstItem="hKf-Au-hXG" firstAttribute="centerY" secondItem="8UH-8s-5BT" secondAttribute="centerY" type="default" id="myf-ha-swi"/>
+                            <constraint firstItem="hKf-Au-hXG" firstAttribute="centerY" secondItem="8UH-8s-5BT" secondAttribute="centerY" type="user" id="myf-ha-swi"/>
+                            <constraint firstItem="QM5-av-TYs" firstAttribute="leading" secondItem="iqH-xs-SKi" secondAttribute="leading" type="default" id="qnO-VF-ZhB"/>
                             <constraint firstItem="CAb-mf-8Fs" firstAttribute="bottom" secondItem="A2L-TZ-fFO" secondAttribute="bottom" type="default" id="rYW-1R-SGv"/>
                             <constraint firstItem="hKf-Au-hXG" firstAttribute="top" secondItem="A2L-TZ-fFO" secondAttribute="bottom" constant="18" type="user" id="x0e-L2-paM"/>
                             <constraint firstAttribute="trailing" secondItem="UUr-m2-aIz" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xFL-BP-BMc"/>
+                            <constraint firstItem="8L1-3Q-vpd" firstAttribute="bottom" secondItem="iqH-xs-SKi" secondAttribute="bottom" type="default" id="zD9-22-Egx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="@Player Detail" id="Qhc-Sq-rA6">
@@ -427,14 +438,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addReplica" destination="8UH-8s-5BT" id="JL8-S5-OAM"/>
+                        <outlet property="bottomToolbar" destination="QM5-av-TYs" id="KNz-oJ-heI"/>
+                        <outlet property="buttonCancelToolbar" destination="Pjq-AR-eSA" id="VoW-do-4Ll"/>
+                        <outlet property="buttonValidateChrony" destination="44f-LS-toK" id="iIL-qm-9T5"/>
+                        <outlet property="buttonValidatePayment" destination="YV0-Xn-7AK" id="h5k-Kj-Vgb"/>
                         <outlet property="name" destination="UUr-m2-aIz" id="Ixq-2G-ZKI"/>
-                        <outlet property="replicaTable" destination="iHh-VQ-ilN" id="dxC-bd-hKf"/>
+                        <outlet property="replicaTable" destination="8L1-3Q-vpd" id="vTI-0A-Rmu"/>
                         <outlet property="team" destination="CAb-mf-8Fs" id="tUh-yw-hS6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCN-K2-eOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="534" y="1467"/>
+            <point key="canvasLocation" x="1508" y="1467"/>
         </scene>
         <!--Replica Detail Controller - @Replica-->
         <scene sceneID="X5m-2Y-rgH">
@@ -526,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rH6-x7-Hp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="1467"/>
+            <point key="canvasLocation" x="1953" y="1467"/>
         </scene>
         <!--Navigation Controller - Joueurs-->
         <scene sceneID="3DQ-aF-caU">
@@ -820,6 +835,40 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgF-XJ-Tu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yeW-yf-L8b">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="210"/>
+                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="separatorColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <prototypes>
+                        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Replica" textLabel="Ifz-K0-RCS" detailTextLabel="iU3-0U-rbh" style="IBUITableViewCellStyleValue1" id="d2i-8u-aem">
+                            <rect key="frame" x="0.0" y="46" width="280" height="46"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                <rect key="frame" x="10" y="1" width="227" height="43"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="@replica" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ifz-K0-RCS">
+                                        <rect key="frame" x="10" y="11" width="72" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="@velocity" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iU3-0U-rbh">
+                                        <rect key="frame" x="143" y="11" width="74" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </tableViewCell>
+                    </prototypes>
+                    <connections>
+                        <outlet property="dataSource" destination="PBp-Zv-AuD" id="zch-y3-RSL"/>
+                        <outlet property="delegate" destination="PBp-Zv-AuD" id="3Wr-FE-PX6"/>
+                    </connections>
+                </tableView>
             </objects>
             <point key="canvasLocation" x="-341" y="768"/>
         </scene>
@@ -884,13 +933,21 @@
         <class className="PlayerDetailController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerDetailController.h"/>
             <relationships>
+                <relationship kind="action" name="cancel:"/>
                 <relationship kind="action" name="name:"/>
                 <relationship kind="action" name="save:"/>
                 <relationship kind="action" name="team:"/>
+                <relationship kind="action" name="validateChrony:"/>
+                <relationship kind="action" name="validatePayment:"/>
                 <relationship kind="outlet" name="addReplica" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bottomToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="buttonCancelToolbar" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="buttonValidateChrony" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="buttonValidatePayment" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="name" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="replicaTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="team" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="validatePayment" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="PlayerListController" superclassName="UITableViewController">
@@ -917,8 +974,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="uRK-9L-4He"/>
-        <segue reference="1wp-Wl-L59"/>
+        <segue reference="ypB-o7-vqx"/>
         <segue reference="8II-5N-X2s"/>
         <segue reference="e8x-ec-f2d"/>
     </inferredMetricsTieBreakers>
