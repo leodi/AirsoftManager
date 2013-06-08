@@ -121,6 +121,12 @@ static Database *sharedDatabase;
     if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
         NSLog(@"KO Create table game_player, %s", error);
     
+    /*
+     sqlStatement = @"DELETE FROM game_player WHERE 1";
+    if (sqlite3_exec(database, [sqlStatement UTF8String], NULL, NULL, &error) != SQLITE_OK)
+        NSLog(@"KO Create table game_player, %s", error);
+    */
+    
     /**
      * Insert
      */

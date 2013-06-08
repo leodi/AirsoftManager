@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "Replica.h"
+#import "Game.h"
 #import "Database.h"
+
+@class Game;
 
 @interface Player : NSObject {
     int id;
@@ -32,6 +35,8 @@
 +(NSArray *)playersArrayToSection:(NSArray *)players;
 
 -(NSMutableArray *)getAllPlayers;
+-(NSMutableArray *)getAllPlayersWitchIsNotInGame:(Game *)game;
+
 -(Player *)initWithData:(int)i name:(NSString *)n team:(NSString *)t;
 -(void)getReplicas;
 -(void)save;

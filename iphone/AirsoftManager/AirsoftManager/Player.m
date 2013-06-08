@@ -75,6 +75,47 @@ static Player *sharedPlayer = nil;
     return players;
 }
 
+-(NSMutableArray *)getAllPlayersWitchIsNotInGame:(Game *)game {
+    sqlite3 *database = [[Database sharedDatabase] getDatabase];
+    sqlite3_stmt *compiledStatement;
+    NSMutableArray *players = [[NSMutableArray alloc] init];
+    char *tmp;
+    
+    if (sqlite3_prepare_v2(database, "SELECT P.id, P.name, P.team FROM player P WHERE P.id NOT IN (SELECT GP.id_player FROM game_player GP WHERE GP.id_game=? AND GP.id_game != 0)", -1, &compiledStatement, NULL) == SQLITE_OK)
+    {
+        sqlite3_bind_int(compiledStatement, 1, [game id]);
+        while (sqlite3_step(compiledStatement) == SQLITE_ROW)
+        {
+            int l_id = sqlite3_column_int(compiledStatement, 0);
+            
+            NSString *l_name;
+            tmp = (char *)sqlite3_column_text(compiledStatement, 1);
+            if (tmp)
+                l_name = [NSString stringWithUTF8String:tmp];
+            else
+                l_name = [NSString alloc];
+            
+            NSString *l_team;
+            tmp = (char *)sqlite3_column_text(compiledStatement, 2);
+            if (tmp)
+                l_team = [NSString stringWithUTF8String:tmp];
+            else
+                l_team = [NSString alloc];
+            
+            Player *player = [[Player alloc] initWithData:l_id name:l_name team:l_team];
+            [player getReplicas];
+            [players addObject:player];
+        }
+    }
+    sqlite3_finalize(compiledStatement);
+    [players sortUsingComparator:^ NSComparisonResult(Player *p1, Player *p2) {
+        if ([p1.team isEqualToString:p2.team])
+            return [p1.name localizedCaseInsensitiveCompare:p2.name];
+        return [p1.team localizedCaseInsensitiveCompare:p2.team];
+    }];
+    return players;
+}
+
 -(void)getReplicas {
     self.replicas = [[NSMutableArray alloc] initWithArray:[Replica getAllReplicasByPlayerId:self.id]];
 }

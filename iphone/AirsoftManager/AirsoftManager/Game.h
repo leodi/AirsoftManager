@@ -10,6 +10,7 @@
 #import "Database.h"
 #import "Player.h"
 
+@class Player;
 @interface Game : NSObject
 
 @property (nonatomic) int id;

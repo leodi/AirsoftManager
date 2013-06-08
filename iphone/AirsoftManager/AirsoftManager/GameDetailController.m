@@ -14,7 +14,7 @@
     [super viewDidLoad];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd/MM/YYYY"];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
         
     self.datePicker = [[UIDatePicker alloc] init];
     [self.datePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
@@ -32,18 +32,21 @@
     self.date.inputView = self.datePicker;
     self.date.inputAccessoryView = self.dateToolbar;
 
-    if ([self.game.name length] != 0)
-        self.date.text = [dateFormatter stringFromDate:[self.game date]];
+    if (self.game == nil)
+        self.game = [Game alloc];
+    else
+    {
+        [self.addPlayerButton setEnabled:YES];
+        [self.addPlayerButton setAlpha:1];
+    }
+    self.date.text = [dateFormatter stringFromDate:[self.game date]];
+    self.name.text = [self.game name];
     
     if ([self.game.name length] != 0)
-    {
-        self.name.text = [self.game name];
         self.navigationItem.title = [self.game name];
-        
-        [self.saveButton setEnabled:YES];
-    }
     else
         self.navigationItem.title = @"-";
+    
     
     [self reloadPlayers];
     
@@ -52,8 +55,16 @@
     [self.view addGestureRecognizer:tapRecognizer];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [self reloadPlayers];
+    [self.playerTable reloadData];
+    [self.gameListController.gameTable deselectRowAtIndexPath:[self.gameListController.gameTable indexPathForSelectedRow] animated:YES];
+}
+
 -(void)reloadPlayers {
-    self.playersSection = [Player playersArrayToSection:[self.game getAllPlayers]];
+    NSArray *players = [self.game getAllPlayers];
+    self.nbPlayers.text = [NSString stringWithFormat:@"%d Joueur%s", [players count], ([players count] > 1 ? "s" : "")];
+    self.playersSection = [Player playersArrayToSection:players];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -83,6 +94,28 @@
     [self.date resignFirstResponder];
 }
 
+- (IBAction)saveGame:(id)sender {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    
+    [self.addPlayerButton setEnabled:YES];
+    [self.addPlayerButton setAlpha:1];
+    
+    self.game.name = self.name.text;
+    self.game.date = [dateFormatter dateFromString:self.date.text];
+    [self.game save];
+    
+    [self.navigationItem setTitle:[self.game name]];
+    
+    [self.saveButton setEnabled:NO];
+    [self.gameListController reloadGames];
+    [self.gameListController.gameTable reloadData];
+}
+
+- (IBAction)nameEdited:(id)sender {
+    [self.saveButton setEnabled:YES];
+}
+
 -(void)addPlayer:(Player *)player {
     [self.game addPlayer:player];
     [self reloadPlayers];
@@ -95,7 +128,7 @@
 
 -(void) changeDate {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd/MM/YYYY"];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     
     [self.saveButton setEnabled:YES];
     [self.date setText:[dateFormatter stringFromDate:self.datePicker.date]];
@@ -142,7 +175,11 @@
         
     cell.textLabel.text = player.name;
     cell.detailTextLabel.text = player.team;
-    
+
+    if (player.chrony && player.payment)
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    else
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
 	return cell;
 }
 
@@ -168,9 +205,6 @@
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView deleteSections:indexes withRowAnimation:UITableViewRowAnimationFade];
         [tableView endUpdates];
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
 }
 

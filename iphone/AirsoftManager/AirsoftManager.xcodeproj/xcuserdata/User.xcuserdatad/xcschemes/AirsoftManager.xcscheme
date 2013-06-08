@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE40A98A1719B9B8006890C8"
-               BuildableName = "AirsoftManagerTests.octest"
-               BlueprintName = "AirsoftManagerTests"
+               BuildableName = "airsoftadmin2.temp_caseinsensitive_renameTests.octest"
+               BlueprintName = "AirsoftManagerTest"
                ReferencedContainer = "container:AirsoftManager.xcodeproj">
             </BuildableReference>
          </TestableReference>
