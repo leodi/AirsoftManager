@@ -35,7 +35,7 @@
     UIBarButtonItem *newBack = [[UIBarButtonItem alloc] initWithTitle:@"Valider" style:UIBarButtonItemStylePlain target:self action:@selector(OnClick_Back:)];
     [[self navigationItem] setLeftBarButtonItem:newBack];
     
-    self.dataArray = [NSArray arrayWithObjects:@"0.12",@"0.20",@"0.23",@"0.25",@"0.30",@"0.36",@"0.40", nil];
+    self.dataArray = [NSArray arrayWithObjects:@"0.12",@"0.20",@"0.23",@"0.25",@"0.28",@"0.30",@"0.35",@"0.36",@"0.38",@"0.40",@"0.45", nil];
 }
 
 -(IBAction)OnClick_Back:(id)sender {

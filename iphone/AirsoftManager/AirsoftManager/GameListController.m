@@ -123,4 +123,20 @@
 	return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Game *game;
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        game = [[self.gamesSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        
+        [game delete];
+        
+        [self reloadGames];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 @end

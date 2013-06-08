@@ -30,14 +30,57 @@
     //self.searchDisplayController.searchResultsDelegate = self;
     [self reloadPlayers];
     
+    
     if (self.isFromGames)
+    {
+        self.toolbar = [[UIToolbar alloc] init];
+        [self.toolbar sizeToFit];
+        [self.toolbar setBarStyle:UIBarStyleBlack];
+        [self.toolbar setAlpha:0];
+        
+        CGFloat toolbarHeight = self.toolbar.frame.size.height;
+        CGRect viewBounds = self.parentViewController.view.bounds;
+        CGFloat rootViewHeight = CGRectGetHeight(viewBounds);
+        CGFloat rootViewWidth = CGRectGetWidth(viewBounds);
+        
+        CGRect rectArea = CGRectMake(0, rootViewHeight - toolbarHeight, rootViewWidth, toolbarHeight);
+        [self.toolbar setFrame:rectArea];
+        [self.navigationController.view addSubview:self.toolbar];
+        
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Valider la liste" style:UIBarButtonItemStyleDone target:self action:@selector(validateCheckedPlayers)];
+        [self.toolbar setItems:@[button]];
+        
+        self.checkedResult = [[NSMutableDictionary alloc] init];
         [self.seachBar setHidden:YES];
+    }
 
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [self reloadPlayers];
+    [self.tableView reloadData];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [self.toolbar removeFromSuperview];
+}
+
 -(void)reloadPlayers {
-    self.players = [[NSArray alloc] initWithArray:[[Player sharedPlayer] getAllPlayers]];
+    if (self.isFromGames)
+        self.players = [[NSArray alloc] initWithArray:[[Player sharedPlayer] getAllPlayersWitchIsNotInGame:self.parentGameDetailController.game]];
+    else
+        self.players = [[NSArray alloc] initWithArray:[[Player sharedPlayer] getAllPlayers]];
     self.playersSection = [Player playersArrayToSection:self.players];
+}
+
+-(void)validateCheckedPlayers {
+    NSString *key;
+    
+    for (key in [self.checkedResult allKeys])
+        [self.parentGameDetailController addPlayer:[self.checkedResult objectForKey:key]];
+    
+    [self.parentGameDetailController.playerTable reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,10 +151,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSInteger count;
+    
     if (tableView == self.searchDisplayController.searchResultsTableView)
-        return [self.searchResults count];
+        count = [self.searchResults count];
     else
-        return [[self.playersSection objectAtIndex:section] count];
+        count = [[self.playersSection objectAtIndex:section] count];
+    
+    return (count);
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -148,7 +195,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.isFromGames == YES)
+    if (self.isFromGames == YES || tableView == self.searchDisplayController.searchResultsTableView)
         return NO;
     else
         return YES;
@@ -157,22 +204,29 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Player *player;
+    Player *player = [[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    NSMutableIndexSet *indexes = [NSMutableIndexSet indexSet];
     
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        player = [[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-        
-        [player delete];
-        
-        [self reloadPlayers];
-        
+    if ([[self.playersSection objectAtIndex:indexPath.section] count] == 1)
+        [indexes addIndex: indexPath.section];
+    
+    [player delete];
+    
+    [self reloadPlayers];
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
+    else
+    {
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteSections:indexes withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
+    }
 }
- 
+
 
 #pragma mark - Table view delegate
 
@@ -182,11 +236,39 @@
         [self performSegueWithIdentifier:@"ShowPlayerDetail1" sender:tableView];
     }
     else if (self.isFromGames == YES)
-    {        
-        [self.parentGameDetailController addPlayer:[[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
-        [self.parentGameDetailController.playerTable reloadData];
-        [self.navigationController popViewControllerAnimated:YES];
+    {
+        [self.toolbar setAlpha:1];
+        
+        Player *player = [[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSString *key = [[NSString alloc] initWithFormat:@"%d", [player id]];
+        
+        if ([cell accessoryType] == UITableViewCellAccessoryNone)
+        {
+            [self.checkedResult setObject:player forKey:key];
+            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        }
+        else
+        {
+            [self.checkedResult removeObjectForKey:key];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+        }
+        
+        //[self.parentGameDetailController addPlayer:[[self.playersSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+        //[self.parentGameDetailController.playerTable reloadData];
+        //[self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    CGFloat ret;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView || !self.isFromGames || section != [self.playersSection count] - 1)
+        ret = 10.0f;
+    else
+        ret = 60.0f;
+    
+    return (ret);
 }
 
 @end

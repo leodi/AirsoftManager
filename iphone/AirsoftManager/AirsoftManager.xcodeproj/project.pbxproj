@@ -13,16 +13,11 @@
 		CE40A9651719B9B8006890C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE40A9631719B9B8006890C8 /* InfoPlist.strings */; };
 		CE40A9671719B9B8006890C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40A9661719B9B8006890C8 /* main.m */; };
 		CE40A96B1719B9B8006890C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40A96A1719B9B8006890C8 /* AppDelegate.m */; };
-		CE40A96D1719B9B8006890C8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE40A96C1719B9B8006890C8 /* Default.png */; };
-		CE40A96F1719B9B8006890C8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE40A96E1719B9B8006890C8 /* Default@2x.png */; };
-		CE40A9711719B9B8006890C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE40A9701719B9B8006890C8 /* Default-568h@2x.png */; };
-		CE40A9741719B9B8006890C8 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40A9721719B9B8006890C8 /* MainStoryboard_iPhone.storyboard */; };
 		CE40A98D1719B9B8006890C8 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE40A98C1719B9B8006890C8 /* SenTestingKit.framework */; };
 		CE40A98E1719B9B8006890C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE40A95A1719B9B8006890C8 /* UIKit.framework */; };
 		CE40A98F1719B9B8006890C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE40A95C1719B9B8006890C8 /* Foundation.framework */; };
 		CE40A9971719B9B8006890C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE40A9951719B9B8006890C8 /* InfoPlist.strings */; };
 		CE40A99A1719B9B8006890C8 /* AirsoftManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40A9991719B9B8006890C8 /* AirsoftManagerTests.m */; };
-		CE40A9A5171A096D006890C8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE40A9A4171A096D006890C8 /* MapKit.framework */; };
 		CE4BBAE41729DA1C0064E590 /* GameListController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4BBAE31729DA1C0064E590 /* GameListController.m */; };
 		CE4BBAE71729DB260064E590 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4BBAE61729DB260064E590 /* Game.m */; };
 		CE4BBAEA17597E910064E590 /* GameDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4BBAE917597E910064E590 /* GameDetailController.m */; };
@@ -42,8 +37,10 @@
 		CEB199E0171B4798007A0F18 /* 32-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB199DF171B4798007A0F18 /* 32-iphone.png */; };
 		CEB199E2171B4846007A0F18 /* 36-toolbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB199E1171B4846007A0F18 /* 36-toolbox.png */; };
 		CEB90179171DFB0800D6F34A /* ReplicaDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB90178171DFB0800D6F34A /* ReplicaDetailController.m */; };
+		CECAA8311761FC9A00FEFF32 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAA8301761FC9A00FEFF32 /* MainStoryboard_iPhone.storyboard */; };
 		CEDD5B871728A22900395BEB /* tableViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDD5B851728A22900395BEB /* tableViewBackground.png */; };
 		CEDD5B881728A22900395BEB /* tableViewBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDD5B861728A22900395BEB /* tableViewBackground@2x.png */; };
+		CEFFC47E1761ED63006054F7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFFC47D1761ED63006054F7 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,27 +58,22 @@
 		CE40A95A1719B9B8006890C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE40A95C1719B9B8006890C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE40A95E1719B9B8006890C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CE40A9621719B9B8006890C8 /* AirsoftManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirsoftManager-Info.plist"; sourceTree = "<group>"; };
+		CE40A9621719B9B8006890C8 /* airsoftadmin2.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "airsoftadmin2.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
 		CE40A9661719B9B8006890C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CE40A9681719B9B8006890C8 /* AirsoftManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirsoftManager-Prefix.pch"; sourceTree = "<group>"; };
+		CE40A9681719B9B8006890C8 /* airsoftadmin2.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "airsoftadmin2.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
 		CE40A9691719B9B8006890C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE40A96A1719B9B8006890C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CE40A96C1719B9B8006890C8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		CE40A96E1719B9B8006890C8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		CE40A9701719B9B8006890C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CE40A98B1719B9B8006890C8 /* AirsoftManagerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirsoftManagerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE40A98B1719B9B8006890C8 /* airsoftadmin2.temp_caseinsensitive_renameTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = airsoftadmin2.temp_caseinsensitive_renameTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE40A98C1719B9B8006890C8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		CE40A9941719B9B8006890C8 /* AirsoftManagerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirsoftManagerTests-Info.plist"; sourceTree = "<group>"; };
+		CE40A9941719B9B8006890C8 /* airsoftadmin2.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "airsoftadmin2.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
 		CE40A9981719B9B8006890C8 /* AirsoftManagerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirsoftManagerTests.h; sourceTree = "<group>"; };
 		CE40A9991719B9B8006890C8 /* AirsoftManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirsoftManagerTests.m; sourceTree = "<group>"; };
-		CE40A9A4171A096D006890C8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CE4BBAE21729DA1C0064E590 /* GameListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListController.h; sourceTree = "<group>"; };
 		CE4BBAE31729DA1C0064E590 /* GameListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListController.m; sourceTree = "<group>"; };
 		CE4BBAE51729DB260064E590 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		CE4BBAE61729DB260064E590 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		CE4BBAE817597E910064E590 /* GameDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailController.h; sourceTree = "<group>"; };
 		CE4BBAE917597E910064E590 /* GameDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailController.m; sourceTree = "<group>"; };
-		CE4BBAEB175A61FE0064E590 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		CE4BBAEC175A61FE0064E590 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE4BBAED175A61FE0064E590 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE6CADCB171B4C7E00382B14 /* PlayerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListController.h; sourceTree = "<group>"; };
@@ -109,8 +101,10 @@
 		CEB199E1171B4846007A0F18 /* 36-toolbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "36-toolbox.png"; sourceTree = "<group>"; };
 		CEB90177171DFB0800D6F34A /* ReplicaDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplicaDetailController.h; path = ../ReplicaDetailController.h; sourceTree = "<group>"; };
 		CEB90178171DFB0800D6F34A /* ReplicaDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReplicaDetailController.m; path = ../ReplicaDetailController.m; sourceTree = "<group>"; };
+		CECAA8301761FC9A00FEFF32 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard_iPhone.storyboard; path = ../../../../../../Desktop/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		CEDD5B851728A22900395BEB /* tableViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableViewBackground.png; sourceTree = "<group>"; };
 		CEDD5B861728A22900395BEB /* tableViewBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewBackground@2x.png"; sourceTree = "<group>"; };
+		CEFFC47D1761ED63006054F7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6CADCF171B55FE00382B14 /* libsqlite3.dylib in Frameworks */,
-				CE40A9A5171A096D006890C8 /* MapKit.framework in Frameworks */,
 				CE40A95B1719B9B8006890C8 /* UIKit.framework in Frameworks */,
 				CE40A95D1719B9B8006890C8 /* Foundation.framework in Frameworks */,
 				CE40A95F1719B9B8006890C8 /* CoreGraphics.framework in Frameworks */,
@@ -143,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				CE6CADCE171B55FE00382B14 /* libsqlite3.dylib */,
-				CE40A9A4171A096D006890C8 /* MapKit.framework */,
 				CE40A9A3171A0718006890C8 /* Resources */,
 				CE40A9601719B9B8006890C8 /* AirsoftManager */,
 				CE40A9921719B9B8006890C8 /* AirsoftManagerTests */,
@@ -156,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				CE40A9571719B9B8006890C8 /* AirsoftManager.app */,
-				CE40A98B1719B9B8006890C8 /* AirsoftManagerTests.octest */,
+				CE40A98B1719B9B8006890C8 /* airsoftadmin2.temp_caseinsensitive_renameTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,13 +180,10 @@
 		CE40A9611719B9B8006890C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE40A9621719B9B8006890C8 /* AirsoftManager-Info.plist */,
+				CE40A9621719B9B8006890C8 /* airsoftadmin2.temp_caseinsensitive_rename-Info.plist */,
 				CE40A9631719B9B8006890C8 /* InfoPlist.strings */,
 				CE40A9661719B9B8006890C8 /* main.m */,
-				CE40A9681719B9B8006890C8 /* AirsoftManager-Prefix.pch */,
-				CE40A96C1719B9B8006890C8 /* Default.png */,
-				CE40A96E1719B9B8006890C8 /* Default@2x.png */,
-				CE40A9701719B9B8006890C8 /* Default-568h@2x.png */,
+				CE40A9681719B9B8006890C8 /* airsoftadmin2.temp_caseinsensitive_rename-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -212,7 +201,7 @@
 		CE40A9931719B9B8006890C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE40A9941719B9B8006890C8 /* AirsoftManagerTests-Info.plist */,
+				CE40A9941719B9B8006890C8 /* airsoftadmin2.temp_caseinsensitive_renameTests-Info.plist */,
 				CE40A9951719B9B8006890C8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -282,7 +271,7 @@
 		CEB9017A171E11D000D6F34A /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				CE40A9721719B9B8006890C8 /* MainStoryboard_iPhone.storyboard */,
+				CECAA8301761FC9A00FEFF32 /* MainStoryboard_iPhone.storyboard */,
 				CE40A9691719B9B8006890C8 /* AppDelegate.h */,
 				CE40A96A1719B9B8006890C8 /* AppDelegate.m */,
 			);
@@ -305,6 +294,7 @@
 		CEDD5B841728A20900395BEB /* background */ = {
 			isa = PBXGroup;
 			children = (
+				CEFFC47D1761ED63006054F7 /* Default-568h@2x.png */,
 				CEDD5B851728A22900395BEB /* tableViewBackground.png */,
 				CEDD5B861728A22900395BEB /* tableViewBackground@2x.png */,
 			);
@@ -331,9 +321,9 @@
 			productReference = CE40A9571719B9B8006890C8 /* AirsoftManager.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CE40A98A1719B9B8006890C8 /* AirsoftManagerTests */ = {
+		CE40A98A1719B9B8006890C8 /* AirsoftManagerTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE40A9A01719B9B8006890C8 /* Build configuration list for PBXNativeTarget "AirsoftManagerTests" */;
+			buildConfigurationList = CE40A9A01719B9B8006890C8 /* Build configuration list for PBXNativeTarget "AirsoftManagerTest" */;
 			buildPhases = (
 				CE40A9861719B9B8006890C8 /* Sources */,
 				CE40A9871719B9B8006890C8 /* Frameworks */,
@@ -345,9 +335,9 @@
 			dependencies = (
 				CE40A9911719B9B8006890C8 /* PBXTargetDependency */,
 			);
-			name = AirsoftManagerTests;
+			name = AirsoftManagerTest;
 			productName = AirsoftManagerTests;
-			productReference = CE40A98B1719B9B8006890C8 /* AirsoftManagerTests.octest */;
+			productReference = CE40A98B1719B9B8006890C8 /* airsoftadmin2.temp_caseinsensitive_renameTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -366,6 +356,7 @@
 			knownRegions = (
 				en,
 				fr,
+				Base,
 			);
 			mainGroup = CE40A94E1719B9B8006890C8;
 			productRefGroup = CE40A9581719B9B8006890C8 /* Products */;
@@ -373,7 +364,7 @@
 			projectRoot = "";
 			targets = (
 				CE40A9561719B9B8006890C8 /* AirsoftManager */,
-				CE40A98A1719B9B8006890C8 /* AirsoftManagerTests */,
+				CE40A98A1719B9B8006890C8 /* AirsoftManagerTest */,
 			);
 		};
 /* End PBXProject section */
@@ -384,10 +375,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE40A9651719B9B8006890C8 /* InfoPlist.strings in Resources */,
-				CE40A96D1719B9B8006890C8 /* Default.png in Resources */,
-				CE40A96F1719B9B8006890C8 /* Default@2x.png in Resources */,
-				CE40A9711719B9B8006890C8 /* Default-568h@2x.png in Resources */,
-				CE40A9741719B9B8006890C8 /* MainStoryboard_iPhone.storyboard in Resources */,
 				CEB199D6171B4718007A0F18 /* 101-gameplan.png in Resources */,
 				CEB199DD171B473B007A0F18 /* 111-user.png in Resources */,
 				CEB199DE171B473B007A0F18 /* 112-group.png in Resources */,
@@ -395,6 +382,8 @@
 				CEB199E2171B4846007A0F18 /* 36-toolbox.png in Resources */,
 				CEDD5B871728A22900395BEB /* tableViewBackground.png in Resources */,
 				CEDD5B881728A22900395BEB /* tableViewBackground@2x.png in Resources */,
+				CEFFC47E1761ED63006054F7 /* Default-568h@2x.png in Resources */,
+				CECAA8311761FC9A00FEFF32 /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,14 +463,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		CE40A9721719B9B8006890C8 /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE4BBAEB175A61FE0064E590 /* fr */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
 		CE40A9951719B9B8006890C8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -555,9 +536,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirsoftManager/AirsoftManager-Prefix.pch";
-				INFOPLIST_FILE = "AirsoftManager/AirsoftManager-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "AirsoftManager/airsoftadmin2.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "AirsoftManager/airsoftadmin2.temp_caseinsensitive_rename-Info.plist";
+				PRODUCT_NAME = AirsoftManager;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -567,9 +548,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirsoftManager/AirsoftManager-Prefix.pch";
-				INFOPLIST_FILE = "AirsoftManager/AirsoftManager-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "AirsoftManager/airsoftadmin2.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "AirsoftManager/airsoftadmin2.temp_caseinsensitive_rename-Info.plist";
+				PRODUCT_NAME = AirsoftManager;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -585,8 +566,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirsoftManager/AirsoftManager-Prefix.pch";
-				INFOPLIST_FILE = "AirsoftManagerTests/AirsoftManagerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "AirsoftManagerTests/airsoftadmin2.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = airsoftadmin2.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -602,8 +583,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirsoftManager/AirsoftManager-Prefix.pch";
-				INFOPLIST_FILE = "AirsoftManagerTests/AirsoftManagerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "AirsoftManagerTests/airsoftadmin2.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = airsoftadmin2.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -630,7 +611,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE40A9A01719B9B8006890C8 /* Build configuration list for PBXNativeTarget "AirsoftManagerTests" */ = {
+		CE40A9A01719B9B8006890C8 /* Build configuration list for PBXNativeTarget "AirsoftManagerTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE40A9A11719B9B8006890C8 /* Debug */,

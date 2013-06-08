@@ -19,14 +19,19 @@
 @property (strong, nonatomic) Game    *game;
 @property (nonatomic, retain) NSArray *playersSection;
 
-@property (weak, nonatomic) IBOutlet UITableView *playerTable;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-
 @property (weak, nonatomic) IBOutlet UITextField *date;
 @property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UILabel *nbPlayers;
+@property (weak, nonatomic) IBOutlet UITableView *playerTable;
+@property (weak, nonatomic) IBOutlet UIButton *addPlayerButton;
+
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, retain) UIToolbar *dateToolbar;
+
+- (IBAction)saveGame:(id)sender;
+- (IBAction)nameEdited:(id)sender;
 
 -(void)addPlayer:(Player *)player;
 -(void)setChronyStateFor:(Player *)player state:(BOOL)state;

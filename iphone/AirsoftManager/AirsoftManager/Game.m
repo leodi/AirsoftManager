@@ -43,7 +43,15 @@ static Game *sharedGame = nil;
         {
             int l_id = sqlite3_column_int(compiledStatement, 0);
             NSString *l_name = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
-            NSDate *l_date = [formatter dateFromString:[NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)]];
+            char * tmp_date = (char *)sqlite3_column_text(compiledStatement, 2);
+            
+            
+            NSDate *l_date;
+            
+            if (tmp_date == nil)
+                l_date = [[NSDate alloc] init];
+            else
+                l_date = [formatter dateFromString:[NSString stringWithUTF8String:tmp_date]];
             
             Game *game = [[Game alloc] initWithData:l_id name:l_name date:l_date];
             [game getPlayers];
@@ -132,7 +140,18 @@ static Game *sharedGame = nil;
     sqlite3 *database = [[Database sharedDatabase] getDatabase];
     sqlite3_stmt *stmt;
     
-    const char * query = "INSERT OR REPLACE INTO game_player (id_game, id_player) VALUES (?,?)";
+    const char * query;
+    
+    query = "DELETE FROM game_player WHERE id_game=? AND id_player=?";
+    if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)
+        NSLog(@"Error sqlite prepare update [%s]", sqlite3_errmsg(database));
+    sqlite3_bind_int(stmt, 1, [self id]);
+    sqlite3_bind_int(stmt, 2, [player id]);
+    
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+    
+    query = "INSERT INTO game_player (id_game, id_player) VALUES (?,?)";
     if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)
         NSLog(@"Error sqlite prepare update [%s]", sqlite3_errmsg(database));
     sqlite3_bind_int(stmt, 1, [self id]);
@@ -161,6 +180,14 @@ static Game *sharedGame = nil;
     sqlite3 *database = [[Database sharedDatabase] getDatabase];
     sqlite3_stmt *stmt;
     const char * query;
+    
+    query = "DELETE FROM game_player WHERE id_game=?";
+    if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)
+        NSLog(@"Error sqlite prepare update [%s]", sqlite3_errmsg(database));
+    sqlite3_bind_int(stmt, 1, [self id]);
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+    
     
     query = "DELETE FROM game WHERE id=?";
     if (sqlite3_prepare_v2(database, query, -1, &stmt, NULL) != SQLITE_OK)

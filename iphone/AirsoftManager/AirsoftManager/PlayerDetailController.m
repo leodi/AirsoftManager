@@ -47,6 +47,13 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    if (self.isFromGames)
+    {
+        [self.gameDetailController.playerTable deselectRowAtIndexPath:[self.gameDetailController.playerTable indexPathForSelectedRow] animated:YES];
+    }
+}
+
 -(void)tap:(UITapGestureRecognizer *)gr {
     [self.view endEditing:YES];
 }
@@ -141,6 +148,11 @@
     [self.playerListController reloadPlayers];
     [self.playerListController.tableView reloadData];
     
+    if (self.isFromGames)
+    {
+        [self.gameDetailController reloadPlayers];
+        [self.gameDetailController.playerTable reloadData];
+    }
     [self activeAddReplica];
     [self.navigationController popViewControllerAnimated:YES];
 }
